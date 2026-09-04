@@ -172,5 +172,20 @@ export default {
 .privacy-note { margin: .35rem 0 0; color: #6c6268; font-size: .78rem; line-height: 1.5; }
 .privacy-note a { color: #8c1748; font-weight: 700; }
 
-@media (max-width: 720px) { .contact-page { border-radius: 2rem; } .contact-hero { min-height: 38rem; } .contact-hero__content { display: flex; flex-direction: column; justify-content: flex-end; align-items: start; gap: 1.5rem; padding: 7rem 2rem 3rem; } .contact-hero__conversion { max-width: 21rem; padding: 0; } .contact-card { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; } .contact-card h2 { max-width: 16ch; } }
+@media (max-width: 720px) {
+  .contact-page { border-radius: 2rem; }
+  .contact-hero { min-height: 38rem; }
+  .contact-hero__content { display: flex; flex-direction: column; justify-content: flex-end; align-items: start; gap: 1.5rem; padding: 7rem 2rem 3rem; }
+  .contact-hero__conversion { max-width: 21rem; padding: 0; }
+  .contact-card { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
+  .contact-card h2 { max-width: 16ch; }
+  .social-link { max-width: 100%; min-width: 0; margin-right: 0; }
+  .social-link > span:not(.social-link__arrow) { min-width: 0; overflow-wrap: anywhere; }
+  .social-link svg, .social-link__arrow { flex: 0 0 auto; }
+}
+
+@media (max-width: 380px) {
+  .contact-card { padding-inline: 1.25rem; }
+  .contact-form { padding: 1.25rem; }
+}
 </style>

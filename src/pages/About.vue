@@ -137,5 +137,47 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
 .btn-cv { display: inline-block; border: 2px solid transparent; border-radius: 999px; background: linear-gradient(90deg, #a83b00, #a30059); color: #fff; padding: .75rem 1.45rem; font-weight: 800; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
 .btn-cv--outline { border-color: #9a1a50; background: transparent; color: #8c1748; }
 .btn-cv:hover { box-shadow: 0 .65rem 1.25rem rgba(122, 11, 60, .22); transform: translateY(-.2rem); }
-@media (max-width: 720px) { .about-page { border-radius: 2rem; } .about-hero { min-height: 35rem; } .about-hero::after { background: linear-gradient(0deg, rgba(47, 0, 24, .72), transparent 62%); } .about-hero__image { max-width: 76%; height: 86%; } .about-hero__content { display: flex; min-height: inherit; flex-direction: column; justify-content: flex-end; gap: .75rem; padding: 2rem; } .about-hero__panel--right { align-self: start; max-width: 14rem; padding: 0; } .about-hero__panel--right p { display: none; } .about-story { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; } .about-story h2 { max-width: 16ch; } .skills-section { padding-inline: 1rem; } .skills-groups { grid-template-columns: 1fr; } .skills-group--secondary { grid-column: auto; } .about-buttons { flex-wrap: wrap; } }
+@media (max-width: 720px) {
+  .about-page { border-radius: 2rem; }
+  .about-hero {
+    display: grid;
+    grid-template-rows: auto auto auto;
+    min-height: 0;
+  }
+  .about-hero::after { background: linear-gradient(0deg, rgba(47, 0, 24, .42), transparent 62%); }
+  .about-hero__content { display: contents; }
+  .about-hero__panel:first-child {
+    z-index: 2;
+    grid-row: 1;
+    padding: 7.25rem 2rem 1.5rem;
+  }
+  .about-hero__image {
+    position: relative;
+    z-index: 1;
+    grid-row: 2;
+    bottom: auto;
+    left: auto;
+    width: min(72%, 17rem);
+    max-width: none;
+    height: auto;
+    margin: 0 auto 1.5rem;
+    transform: none;
+  }
+  .about-hero__panel--right {
+    z-index: 2;
+    grid-row: 3;
+    justify-self: auto;
+    max-width: 20rem;
+    padding: 0 2rem 2.5rem;
+  }
+  .about-story { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
+  .about-story h2 { max-width: 16ch; }
+  :deep(.about-hero__navbar .nav-links--open a) { color: #2d1724; }
+  :deep(.about-hero__navbar .nav-links--open a.router-link-active) { border-bottom-color: #f39c12; }
+  :deep(.about-hero__navbar .nav-links--open a:hover) { color: #8c1748; }
+  .skills-section { padding-inline: 1rem; }
+  .skills-groups { grid-template-columns: 1fr; }
+  .skills-group--secondary { grid-column: auto; }
+  .about-buttons { flex-wrap: wrap; }
+}
 </style>
