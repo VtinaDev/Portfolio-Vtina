@@ -129,9 +129,9 @@ export default {
 .contact-page { overflow: hidden; border-radius: 3rem; }
 .contact-hero { position: relative; min-height: clamp(30rem, 58vw, 42rem); overflow: hidden; border: 1px solid rgba(255, 255, 255, .18); border-radius: 0 0 2.5rem 2.5rem; background: linear-gradient(105deg, #8b270e 0%, #931b3d 48%, #79044d 100%); box-shadow: 0 .45rem 1.25rem rgba(63, 5, 39, .1); color: #fff; }
 .contact-hero__navbar { position: absolute; z-index: 2; top: 0; left: 0; width: 100%; background: transparent; }
-:deep(.contact-hero__navbar .nav-links a) { color: #fff; }
-:deep(.contact-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #fff; }
-:deep(.contact-hero__navbar .nav-links a:hover) { color: #ffd2b5; }
+:deep(.contact-hero__navbar .nav-links a) { color: #a30059; }
+:deep(.contact-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #a30059; }
+:deep(.contact-hero__navbar .nav-links a:hover) { color: #79044d; }
 .contact-hero__content { position: relative; z-index: 1; display: grid; min-height: inherit; grid-template-columns: 1fr 1fr; align-items: end; gap: clamp(2rem, 8vw, 8rem); padding: clamp(7rem, 12vw, 10rem) clamp(2rem, 8vw, 8rem) clamp(3.5rem, 8vw, 7rem); text-align: left; }
 .eyebrow { margin: 0 0 .75rem; color: #ff6b00; font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .eyebrow--dark { color: #ff6b00; }
@@ -173,8 +173,8 @@ export default {
 .privacy-note a { color: #8c1748; font-weight: 700; }
 
 @media (max-width: 720px) {
-  .contact-page { border-radius: 2rem; }
-  .contact-hero { min-height: 38rem; }
+  .contact-page { border-radius: 0; }
+  .contact-hero { min-height: 38rem; border-radius: 0; }
   .contact-hero__content { display: flex; flex-direction: column; justify-content: flex-end; align-items: start; gap: 1.5rem; padding: 7rem 2rem 3rem; }
   .contact-hero__conversion { max-width: 21rem; padding: 0; }
   .contact-card { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }

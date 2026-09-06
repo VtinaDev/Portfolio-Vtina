@@ -108,6 +108,15 @@ export default {
 
 /* Responsivo */
 @media (max-width: 768px) {
+  :global(#app:has(.home-layout)) {
+    max-width: none;
+    padding: 0;
+  }
+
+  :deep(.home-layout main) {
+    padding: 0;
+  }
+
   .intro-container h1 {
     font-size: 2.2rem;
   }

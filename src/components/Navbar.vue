@@ -52,17 +52,17 @@ const isOpen = ref(false)
 
 .nav-links a {
   text-decoration: none;
-  color: rgb(54, 54, 54);
+  color: #a30059;
   font-weight: 500;
   transition: color 0.2s ease;
 }
 
 .nav-links a.router-link-active {
-  border-bottom: 2px solid #f39c12;
+  border-bottom: 2px solid #a30059;
 }
 
 .nav-links a:hover {
-  color: #a35515;
+  color: #79044d;
 }
 
 .menu-toggle {

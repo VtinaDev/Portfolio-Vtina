@@ -98,9 +98,9 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
 .about-page { --about-cover-gradient: linear-gradient(105deg, #8b270e 0%, #931b3d 48%, #79044d 100%); overflow: hidden; border-radius: 3rem; background: var(--about-cover-gradient); }
 .about-hero { position: relative; isolation: isolate; min-height: clamp(25rem, 48vw, 35rem); overflow: hidden; background: var(--about-cover-gradient); color: #fff; }
 .about-hero__navbar { position: absolute; z-index: 5; top: 0; left: 0; width: 100%; background: transparent; }
-:deep(.about-hero__navbar .nav-links a) { color: #fff; }
-:deep(.about-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #fff; }
-:deep(.about-hero__navbar .nav-links a:hover) { color: #ffd2b5; }
+:deep(.about-hero__navbar .nav-links a) { color: #a30059; }
+:deep(.about-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #a30059; }
+:deep(.about-hero__navbar .nav-links a:hover) { color: #79044d; }
 .about-hero::after { position: absolute; z-index: 0; inset: 0; content: ''; background: radial-gradient(circle at 50% 38%, rgba(255, 190, 150, .2), transparent 40%); pointer-events: none; }
 .about-hero__image { position: absolute; z-index: 1; bottom: 0; left: 50%; width: auto; max-width: 42%; height: 106%; object-fit: contain; object-position: bottom center; transform: translateX(-50%); }
 .about-hero__content { position: relative; z-index: 2; display: grid; min-height: inherit; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; padding: clamp(2rem, 6vw, 5rem); text-align: left; }
@@ -138,27 +138,27 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
 .btn-cv--outline { border-color: #9a1a50; background: transparent; color: #8c1748; }
 .btn-cv:hover { box-shadow: 0 .65rem 1.25rem rgba(122, 11, 60, .22); transform: translateY(-.2rem); }
 @media (max-width: 720px) {
-  .about-page { border-radius: 2rem; }
+  .about-page { border-radius: 0; }
   .about-hero {
     min-height: 39rem;
     overflow: visible;
   }
-  .about-hero::after { background: linear-gradient(0deg, rgba(47, 0, 24, .42), transparent 62%); }
+  .about-hero::after { display: none; }
   .about-hero__content {
     z-index: 2;
     display: flex;
     min-height: 0;
     flex-direction: column;
     align-items: flex-start;
-    gap: 1.25rem;
+    gap: .75rem;
     padding: 7.25rem 2rem 0;
   }
   .about-hero__image {
     position: absolute;
     z-index: 1;
-    bottom: -3rem;
+    bottom: -3.5rem;
     left: 50%;
-    width: min(72%, 17rem);
+    width: min(86%, 20rem);
     max-width: none;
     height: auto;
     margin: 0;
@@ -170,8 +170,8 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
   }
   .about-story { position: relative; z-index: 2; grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
   .about-story h2 { max-width: 16ch; }
-  :deep(.about-hero__navbar .nav-links--open a) { color: #2d1724; }
-  :deep(.about-hero__navbar .nav-links--open a.router-link-active) { border-bottom-color: #f39c12; }
+  :deep(.about-hero__navbar .nav-links--open a) { color: #a30059; }
+  :deep(.about-hero__navbar .nav-links--open a.router-link-active) { border-bottom-color: #a30059; }
   :deep(.about-hero__navbar .nav-links--open a:hover) { color: #8c1748; }
   .skills-section { padding-inline: 1rem; }
   .skills-groups { grid-template-columns: 1fr; }
