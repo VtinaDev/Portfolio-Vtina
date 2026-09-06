@@ -151,6 +151,17 @@ button:focus-visible {
   }
 }
 
+@media (max-width: 720px) {
+  #app {
+    max-width: none;
+    padding: 0;
+  }
+
+  .layout main {
+    padding: 0;
+  }
+}
+
 
 footer {
   max-width: 100%;

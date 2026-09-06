@@ -158,7 +158,7 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
     z-index: 1;
     bottom: -3.5rem;
     left: 50%;
-    width: min(86%, 20rem);
+    width: min(100%, 23rem);
     max-width: none;
     height: auto;
     margin: 0;

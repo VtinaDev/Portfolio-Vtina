@@ -68,8 +68,11 @@ const isOpen = ref(false)
 .menu-toggle {
   display: none;
   border: 0;
-  background: transparent;
-  color: rgb(54, 54, 54);
+  background: linear-gradient(90deg, #ff6b00, #a30059);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
   font-size: 1.5rem;
   line-height: 1;
 }
