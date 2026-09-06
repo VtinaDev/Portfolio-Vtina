@@ -140,37 +140,35 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
 @media (max-width: 720px) {
   .about-page { border-radius: 2rem; }
   .about-hero {
-    display: grid;
-    grid-template-rows: auto auto auto;
-    min-height: 0;
+    min-height: 39rem;
+    overflow: visible;
   }
   .about-hero::after { background: linear-gradient(0deg, rgba(47, 0, 24, .42), transparent 62%); }
-  .about-hero__content { display: contents; }
-  .about-hero__panel:first-child {
+  .about-hero__content {
     z-index: 2;
-    grid-row: 1;
-    padding: 7.25rem 2rem 1.5rem;
+    display: flex;
+    min-height: 0;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 7.25rem 2rem 0;
   }
   .about-hero__image {
-    position: relative;
+    position: absolute;
     z-index: 1;
-    grid-row: 2;
-    bottom: auto;
-    left: auto;
+    bottom: -3rem;
+    left: 50%;
     width: min(72%, 17rem);
     max-width: none;
     height: auto;
-    margin: 0 auto 1.5rem;
-    transform: none;
+    margin: 0;
+    transform: translateX(-50%);
   }
   .about-hero__panel--right {
-    z-index: 2;
-    grid-row: 3;
-    justify-self: auto;
     max-width: 20rem;
-    padding: 0 2rem 2.5rem;
+    padding: 0;
   }
-  .about-story { grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
+  .about-story { position: relative; z-index: 2; grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
   .about-story h2 { max-width: 16ch; }
   :deep(.about-hero__navbar .nav-links--open a) { color: #2d1724; }
   :deep(.about-hero__navbar .nav-links--open a.router-link-active) { border-bottom-color: #f39c12; }
