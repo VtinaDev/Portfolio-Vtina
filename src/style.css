@@ -157,7 +157,7 @@ button:focus-visible {
     padding: 0;
   }
 
-  .layout main {
+  #app .layout main {
     padding: 0;
   }
 }
