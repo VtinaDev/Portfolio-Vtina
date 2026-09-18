@@ -77,7 +77,7 @@ export default { name: 'Privacy', components: { LayoutBase } }
 </script>
 
 <style scoped>
-:global(body:has(.privacy-layout)) { background: #f3f1f2; }
+:global(body:has(.privacy-layout)) { background: var(--brand-cream); }
 :global(#app:has(.privacy-layout)) { max-width: none; padding: 0; }
 :deep(.privacy-layout main) { padding: 0; }
 .privacy-page { max-width: 75rem; margin: 0 auto; padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 5vw, 3rem) clamp(5rem, 10vw, 8rem); color: #2d1724; }

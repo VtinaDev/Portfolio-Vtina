@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar">
+  <nav class="navbar" :class="{ 'navbar--hero': ['Home', 'Cascroty'].includes(route.name), 'navbar--clean-cover': route.name === 'Cascroty' }">
     <!-- Logo -->
     <router-link to="/" class="logo-container">
       <img :src="logo" alt="Vtina Dev" class="logo" />
@@ -17,19 +17,34 @@
 
 <script setup>
 import { ref } from 'vue'
+import { useRoute } from 'vue-router'
 import logo from '../assets/logo.png'
 
 const isOpen = ref(false)
+const route = useRoute()
 </script>
 
 <style scoped>
 .navbar {
+  --nav-tech-orange: #a83a0b;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
   background-color: transparent;
   color: rgb(97, 97, 97);
+}
+
+.navbar--hero {
+  position: absolute !important;
+  inset: 0 0 auto;
+  z-index: 10;
+  background: transparent !important;
+}
+
+.navbar--clean-cover .nav-links,
+.navbar--clean-cover .menu-toggle {
+  display: none;
 }
 
 .logo-container {
@@ -42,6 +57,13 @@ const isOpen = ref(false)
 .logo {
   height: 45px;
   width: auto;
+  animation: mascot-float 3.4s ease-in-out infinite;
+  transform-origin: center bottom;
+}
+
+@keyframes mascot-float {
+  0%, 100% { transform: translateY(0) rotate(-2deg); }
+  50% { transform: translateY(-.4rem) rotate(2deg); }
 }
 
 
@@ -52,27 +74,25 @@ const isOpen = ref(false)
 
 .nav-links a {
   text-decoration: none;
-  color: #a30059;
   font-weight: 500;
-  transition: color 0.2s ease;
+  color: var(--nav-tech-orange);
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  transition: filter 0.2s ease;
 }
 
 .nav-links a.router-link-active {
-  border-bottom: 2px solid #a30059;
+  border-bottom: 2px solid var(--nav-tech-orange);
 }
 
 .nav-links a:hover {
-  color: #79044d;
+  filter: brightness(0.8);
 }
 
 .menu-toggle {
   display: none;
   border: 0;
-  background: linear-gradient(90deg, #ff6b00, #a30059);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
+  color: var(--nav-tech-orange);
   font-size: 1.5rem;
   line-height: 1;
 }
@@ -83,5 +103,15 @@ const isOpen = ref(false)
   .nav-links { display: none; position: absolute; top: calc(100% - .2rem); right: 1.25rem; min-width: 10rem; flex-direction: column; gap: .25rem; padding: .65rem; border: 1px solid rgba(45, 23, 36, .12); border-radius: .75rem; background: #fff; box-shadow: 0 .8rem 2rem rgba(45, 23, 36, .14); }
   .nav-links--open { display: flex; }
   .nav-links a { padding: .5rem .65rem; }
+}
+
+@media (max-width: 420px) {
+  .navbar { padding: .8rem 1rem; }
+  .menu-toggle { width: 2.75rem; height: 2.75rem; padding: 0; }
+  .nav-links { left: 1rem; right: 1rem; min-width: 0; text-align: center; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .logo { animation: none; }
 }
 </style>

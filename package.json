@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
+    "gsap": "^3.15.0",
     "vue": "^3.5.18",
     "vue-router": "^4.5.1"
   },

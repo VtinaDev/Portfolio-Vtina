@@ -3,8 +3,6 @@
     <p>© {{ currentYear }} Valentina Angulo. Todos los derechos reservados.</p>
     <div class="social-links">
       <router-link to="/privacy">Privacidad</router-link>
-      <a href="https://www.linkedin.com/in/vtinadev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <a href="https://github.com/VtinaDev" target="_blank" rel="noopener noreferrer">GitHub</a>
     </div>
   </footer>
 </template>
@@ -19,31 +17,41 @@ export default {
 <style scoped>
 
 .footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: rgb(97, 97, 97);
-  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  color: #6e6870;
+  margin-top: 0;
   max-width: 100%;
+  border-top: 0;
+  background: #fff;
+  font-size: .8rem;
 }
 
 .footer p {
-  margin-bottom: 1rem;
+  margin: 0;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  gap: 1.25rem;
 }
 
 .social-links a {
-  color: #f39c12;
+  color: var(--brand-orange);
   text-decoration: none;
   font-weight: 500;
-  transition: transform 0.2s;
+  transition: color 0.2s, transform 0.2s;
 }
 
 .social-links a:hover {
-  transform: scale(1.1);
+  color: var(--brand-magenta);
+  transform: translateY(-.1rem);
+}
+
+@media (max-width: 620px) {
+  .footer { flex-direction: column; gap: 1rem; text-align: center; }
 }
 </style>

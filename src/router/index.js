@@ -4,6 +4,7 @@ import About from '../pages/About.vue'
 import Portfolio from '../pages/Portfolio.vue'
 import Contact from '../pages/Contact.vue'
 import Privacy from '../pages/Privacy.vue'
+import Cascroty from '../pages/Cascroty.vue'
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -11,6 +12,7 @@ const routes = [
   { path: '/portfolio', name: 'Portfolio', component: Portfolio },
   { path: '/contact', name: 'Contact', component: Contact },
   { path: '/privacy', name: 'Privacy', component: Privacy },
+  { path: '/projects/cascroty', name: 'Cascroty', component: Cascroty },
 ]
 
 const router = createRouter({
@@ -19,5 +21,4 @@ const router = createRouter({
 })
 
 export default router
-
 

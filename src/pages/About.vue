@@ -10,8 +10,7 @@
             <h1 id="about-title">About me</h1>
           </div>
           <div class="about-hero__panel about-hero__panel--right">
-            <h2>La persona detrás del trabajo.</h2>
-            <p>Diseño y desarrollo experiencias digitales con propósito, desde Barcelona.</p>
+            <h2>Diseño y desarrollo experiencias digitales con propósito, desde Barcelona.</h2>
           </div>
         </div>
       </section>
@@ -22,16 +21,40 @@
           <h2 id="story-title">Creatividad, tecnología e IA para dar vida a buenas ideas.</h2>
         </div>
         <div class="about-story__copy">
-          <p class="about-story__lead">Soy <strong>Valentina Angulo</strong>, frontend developer con una mirada que une diseño, comunicación y desarrollo web.</p>
+          <p class="about-story__lead">Soy <strong>Valentina Angulo</strong>, frontend developer, mi misión es unir diseño, comunicación y desarrollo web.</p>
           <p>Tras mi experiencia en Marketing y Comunicación, decidí dar el salto a la programación y en 2025 completé la especialización en <strong>Frontend Web Developer</strong> en la <strong>UOC</strong>.</p>
           <p>Desarrollo interfaces modernas, responsivas y centradas en las personas. Actualmente incorporo <strong>IA y APIs</strong> para crear productos digitales más útiles, dinámicos e innovadores.</p>
+        </div>
+      </section>
+
+      <section class="creative-portfolio" aria-labelledby="creative-portfolio-title">
+        <div class="creative-portfolio__heading">
+          <p class="eyebrow eyebrow--dark">Comunicación visual</p>
+          <h2 id="creative-portfolio-title">Identidades que cuentan una historia.</h2>
+        </div>
+        <div class="creative-portfolio__content">
+          <p class="creative-portfolio__lead">Mi trayectoria en comunicación visual y diseño de identidad de marca parte de escuchar, encontrar una voz propia y convertirla en un sistema visual coherente.</p>
+          <p>En Behance reúno proyectos de branding, dirección creativa y piezas de comunicación: desde el concepto y la identidad hasta sus aplicaciones en soportes físicos y digitales.</p>
+          <ul class="creative-portfolio__areas" aria-label="Áreas de proyectos creativos">
+            <li>Branding</li>
+            <li>Identidad visual</li>
+            <li>Dirección de arte</li>
+            <li>Comunicación digital</li>
+          </ul>
+          <a class="creative-portfolio__behance" href="https://www.behance.net/ploydesigns" target="_blank" rel="noopener noreferrer">Ver proyectos en Behance</a>
+        </div>
+        <div class="behance-projects" aria-label="Proyectos de Behance">
+          <component v-for="project in behanceProjects" :key="project.title" :is="project.to ? 'RouterLink' : 'a'" class="behance-projects__item" :to="project.to" :href="project.url" :target="project.to ? undefined : '_blank'" :rel="project.to ? undefined : 'noopener noreferrer'">
+            <img :src="project.cover" :alt="`Portada del proyecto ${project.title}`">
+            <span class="behance-projects__overlay"><span>{{ project.to ? 'Case study' : 'Behance project' }}</span><strong>{{ project.title }}</strong><small>{{ project.to ? 'Ver case study →' : 'Ver proyecto ↗' }}</small></span>
+          </component>
         </div>
       </section>
     </div>
 
     <section class="skills-section" aria-labelledby="skills-title">
       <p class="eyebrow eyebrow--dark">Mi caja de herramientas</p>
-      <h2 id="skills-title">Las herramientas con las que las ideas cobran vida.</h2>
+      <h2 id="skills-title">Para dar vida a buenas ideas.</h2>
       <div class="skills-groups">
         <section class="skills-group" aria-labelledby="core-frontend-title">
           <h3 id="core-frontend-title">Core Frontend</h3>
@@ -85,22 +108,38 @@
 import LayoutBase from '../components/LayoutBase.vue'
 import Navbar from '../components/Navbar.vue'
 import aboutHero from '../assets/Sujeto.png'
+import behanceVerticality from '../assets/behance-verticality.webp'
+import behanceCascroty from '../assets/cascroty/Ilustración_sin_título.png'
 import openaiLogo from '../assets/icons/openai.svg'
 import elevenlabsLogo from '../assets/icons/elevenlabs.svg'
-export default { name: 'About', components: { LayoutBase, Navbar }, data() { return { aboutHero, openaiLogo, elevenlabsLogo } } }
+export default {
+  name: 'About',
+  components: { LayoutBase, Navbar },
+  data() {
+    return {
+      aboutHero,
+      openaiLogo,
+      elevenlabsLogo,
+      behanceProjects: [
+        { title: 'VERTICALITY', cover: behanceVerticality, url: 'https://www.behance.net/gallery/200801549/VERTICALITY' },
+        { title: 'Cascroty packaging moroccan real food', cover: behanceCascroty, to: '/projects/cascroty', url: 'https://www.behance.net/gallery/175132577/Cascroty-packaging-moroccan-real-food' }
+      ]
+    }
+  }
+}
 </script>
 
 <style scoped>
-:global(body:has(.about-layout)) { background: linear-gradient(105deg, #8b270e 0%, #931b3d 48%, #79044d 100%); }
+:global(body:has(.about-layout)) { background: #f7f7f8; }
 :global(#app:has(.about-layout)) { max-width: none; padding: 0; }
 :deep(.about-layout main) { padding: 0; }
-:deep(.layout) { background: linear-gradient(105deg, #8b270e 0%, #931b3d 48%, #79044d 100%); }
-.about-page { --about-cover-gradient: linear-gradient(105deg, #8b270e 0%, #931b3d 48%, #79044d 100%); overflow: hidden; border-radius: 3rem; background: var(--about-cover-gradient); }
+:deep(.layout) { background: #f7f7f8; }
+.about-page { --about-cover-gradient: radial-gradient(circle at 14% 12%, #ffae55, transparent 34%), radial-gradient(circle at 82% 82%, #ed1672, transparent 36%), linear-gradient(120deg, #d94a12, #c20b5a 54%, #5c0c48); overflow: hidden; border-radius: 3rem; background: #fff; }
 .about-hero { position: relative; isolation: isolate; min-height: clamp(25rem, 48vw, 35rem); overflow: hidden; background: var(--about-cover-gradient); color: #fff; }
 .about-hero__navbar { position: absolute; z-index: 5; top: 0; left: 0; width: 100%; background: transparent; }
-:deep(.about-hero__navbar .nav-links a) { color: #a30059; }
-:deep(.about-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #a30059; }
-:deep(.about-hero__navbar .nav-links a:hover) { color: #79044d; }
+:deep(.about-hero__navbar .nav-links a) { color: #fff; -webkit-text-fill-color: #fff; }
+:deep(.about-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #fff; }
+:deep(.about-hero__navbar .nav-links a:hover) { color: var(--brand-amber); -webkit-text-fill-color: var(--brand-amber); }
 .about-hero::after { position: absolute; z-index: 0; inset: 0; content: ''; background: radial-gradient(circle at 50% 38%, rgba(255, 190, 150, .2), transparent 40%); pointer-events: none; }
 .about-hero__image { position: absolute; z-index: 1; bottom: 0; left: 50%; width: auto; max-width: 42%; height: 106%; object-fit: contain; object-position: bottom center; transform: translateX(-50%); }
 .about-hero__content { position: relative; z-index: 2; display: grid; min-height: inherit; grid-template-columns: 1fr 1fr; align-items: end; gap: 2rem; padding: clamp(2rem, 6vw, 5rem); text-align: left; }
@@ -116,8 +155,20 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
 .about-story__copy { color: #5d5760; font-size: 1.05rem; line-height: 1.75; }
 .about-story__copy p { margin: 0 0 1.15rem; }
 .about-story__lead { color: #29232b; font-size: clamp(1.2rem, 2vw, 1.5rem); line-height: 1.45; }
-.skills-section { max-width: 75rem; margin: 0 auto; padding: 4rem 2rem; color: #fff; text-align: center; }
-.skills-section h2 { background: linear-gradient(105deg, #8b270e 0%, #e76f22 32%, #931b3d 58%, #79044d 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-size: clamp(2rem, 4vw, 3rem); }
+.creative-portfolio { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(2.5rem, 8vw, 8rem); padding: clamp(4rem, 8vw, 7rem) clamp(2rem, 7vw, 7rem); background: #f3e6dd; color: #2d1724; text-align: left; }
+.creative-portfolio h2 { max-width: 11ch; margin: 0; font-family: Arial, sans-serif; font-size: clamp(2rem, 4vw, 3.6rem); letter-spacing: -.045em; line-height: 1.03; }
+.creative-portfolio__content { color: #5d4b4a; font-size: 1.05rem; line-height: 1.75; }
+.creative-portfolio__content p { margin: 0 0 1.15rem; }
+.creative-portfolio__lead { color: #34232e; font-size: clamp(1.2rem, 2vw, 1.45rem); line-height: 1.45; }
+.creative-portfolio__areas { display: flex; flex-wrap: wrap; gap: .6rem; margin: 1.8rem 0; padding: 0; list-style: none; }
+.creative-portfolio__areas li { border: 1px solid #c78c6c; border-radius: 999px; padding: .5rem .8rem; color: #7b2b24; font-size: .78rem; font-weight: 800; }
+.creative-portfolio__behance { display: inline-flex; align-items: center; gap: .6rem; margin-top: .4rem; border-bottom: 2px solid currentColor; color: #7b2b24; font-size: .85rem; font-weight: 800; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; transition: color .2s ease, transform .2s ease; }.creative-portfolio__behance:hover { color: #e76f22; transform: translateX(.2rem); }
+.behance-projects { display: grid; grid-column: 1 / -1; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; width: min(100%, 50rem); margin: clamp(1rem, 4vw, 2rem) auto 0; }
+.behance-projects__item { position: relative; display: block; aspect-ratio: 4 / 3; overflow: hidden; border: 1px solid rgba(45, 23, 36, .14); border-radius: 1.35rem; background: #fff; color: #fff; text-decoration: none; box-shadow: 0 .45rem 1.1rem rgba(45, 23, 36, .1); }.behance-projects__item img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform .4s ease; }.behance-projects__item:hover img { transform: scale(1.035); }
+.behance-projects__overlay { position: absolute; inset: auto 0 0; display: flex; min-height: 44%; flex-direction: column; justify-content: end; gap: .3rem; padding: 1.2rem; background: linear-gradient(transparent, rgba(27, 13, 21, .88)); }.behance-projects__overlay span { color: #ffbe8a; font-size: .68rem; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }.behance-projects__overlay strong { font-family: Arial, sans-serif; font-size: clamp(1.1rem, 2vw, 1.55rem); letter-spacing: -.035em; line-height: 1.05; }.behance-projects__overlay small { margin-top: .2rem; font-size: .75rem; font-weight: 800; }
+.behance-slide-enter-active, .behance-slide-leave-active { transition: opacity .3s ease, transform .3s ease; }.behance-slide-enter-from { opacity: 0; transform: translateX(4%); }.behance-slide-leave-to { opacity: 0; transform: translateX(-4%); }
+.skills-section { max-width: 75rem; margin: 0 auto; padding: 4rem 2rem; color: #1d1d1f; text-align: center; }
+.skills-section h2 { background: linear-gradient(105deg, #8b270e 0%, #e76f22 28%, #931b3d 52%, #f72585 72%, #79044d 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-size: clamp(2rem, 4vw, 3rem); }
 .skills-groups { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-top: 3rem; text-align: left; }
 .skills-group { min-height: 14rem; overflow: hidden; border: 0; border-radius: 1.5rem; background: #f3f1f2; padding: 1.5rem; }
 .skills-group h3 { margin: 0; color: #ffb07a; font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; }
@@ -134,9 +185,9 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
 .skills-group--secondary { min-height: 14rem; padding: 1.5rem; }
 .skills-group--secondary .skills-icons { margin-top: 1rem; }
 .about-buttons { display: flex; justify-content: center; gap: 1rem; padding-bottom: 2rem; }
-.btn-cv { display: inline-block; border: 2px solid transparent; border-radius: 999px; background: linear-gradient(90deg, #a83b00, #a30059); color: #fff; padding: .75rem 1.45rem; font-weight: 800; text-decoration: none; transition: transform .25s ease, box-shadow .25s ease; }
-.btn-cv--outline { border-color: #9a1a50; background: transparent; color: #8c1748; }
-.btn-cv:hover { box-shadow: 0 .65rem 1.25rem rgba(122, 11, 60, .22); transform: translateY(-.2rem); }
+.btn-cv { display: inline-block; border: 1px solid rgba(255, 255, 255, .62); border-radius: 999px; background: linear-gradient(105deg, rgba(168, 59, 0, .9), rgba(163, 0, 89, .84), rgba(237, 22, 114, .78)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 .6rem 1.3rem rgba(122, 11, 60, .16); color: #fff; padding: .75rem 1.45rem; font-weight: 800; text-decoration: none; backdrop-filter: blur(.7rem); -webkit-backdrop-filter: blur(.7rem); transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
+.btn-cv--outline { border-color: rgba(194, 11, 90, .25); background: linear-gradient(145deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .18)); color: #8c1748; }
+.btn-cv:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .82), 0 .8rem 1.5rem rgba(122, 11, 60, .22); transform: translateY(-.2rem); }
 @media (max-width: 720px) {
   .about-page { border-radius: 0; }
   .about-hero {
@@ -168,14 +219,23 @@ export default { name: 'About', components: { LayoutBase, Navbar }, data() { ret
     max-width: 20rem;
     padding: 0;
   }
-  .about-story { position: relative; z-index: 2; grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
+  .about-story, .creative-portfolio { position: relative; z-index: 2; grid-template-columns: 1fr; gap: 2rem; padding: 4rem 2rem; }
   .about-story h2 { max-width: 16ch; }
-  :deep(.about-hero__navbar .nav-links--open a) { color: #a30059; }
-  :deep(.about-hero__navbar .nav-links--open a.router-link-active) { border-bottom-color: #a30059; }
-  :deep(.about-hero__navbar .nav-links--open a:hover) { color: #8c1748; }
+  .behance-projects { grid-template-columns: 1fr; margin-top: 0; }
+  :deep(.about-hero__navbar .nav-links--open a) { color: var(--brand-ink); -webkit-text-fill-color: var(--brand-ink); }
+  :deep(.about-hero__navbar .nav-links--open a.router-link-active) { border-bottom-color: var(--brand-orange); }
+  :deep(.about-hero__navbar .nav-links--open a:hover) { color: var(--brand-orange); -webkit-text-fill-color: var(--brand-orange); }
   .skills-section { padding-inline: 1rem; }
   .skills-groups { grid-template-columns: 1fr; }
   .skills-group--secondary { grid-column: auto; }
   .about-buttons { flex-wrap: wrap; }
 }
+@media (max-width: 480px) {
+  .about-hero { min-height: 36rem; }
+  .about-hero__content { padding: 6.25rem 1.25rem 0; }
+  .about-story, .creative-portfolio { padding: 3rem 1.25rem; }
+  .about-buttons { flex-direction: column; align-items: stretch; padding: 0 1.25rem 2rem; }
+  .btn-cv { text-align: center; }
+}
+@media (prefers-reduced-motion: reduce) { .behance-projects__item img { transition: none; } }
 </style>

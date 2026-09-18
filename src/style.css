@@ -1,11 +1,20 @@
 :root {
+  --brand-ink: #12070e;
+  --brand-wine: #4a0919;
+  --brand-magenta: #c20b5a;
+  --brand-pink: #ed1672;
+  --brand-orange: #d94a12;
+  --brand-amber: #ffae55;
+  --brand-cream: #fff4eb;
+  --brand-muted: #a98d99;
+  --brand-line: rgba(237, 22, 114, .22);
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #dcdcdc;
+  color-scheme: light;
+  color: #1d1d1f;
+  background-color: #f7f7f8;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -46,8 +55,8 @@ body, html, #app {
 nav {
   width: 100%;
   max-width: 100%;
-  background-color: #d3d3d3;
-  color: white;
+  background-color: transparent;
+  color: #1d1d1f;
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -57,7 +66,7 @@ nav {
 }
 
 nav a {
-  color: white;
+  color: #1d1d1f;
   text-decoration: none;
   margin-left: 1rem;
 }
@@ -70,7 +79,7 @@ nav a:hover {
   display: flex;
   align-items: center;
   justify-content: space-between; /* espacio entre logo y enlaces */
-  background-color: #f8f8f8;
+  background-color: transparent;
   padding: 1rem 2rem;
 }
 
@@ -95,6 +104,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background: #f7f7f8;
+  color: #1d1d1f;
 }
 
 h1 {
