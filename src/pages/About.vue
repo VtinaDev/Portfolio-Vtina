@@ -109,7 +109,7 @@ import LayoutBase from '../components/LayoutBase.vue'
 import Navbar from '../components/Navbar.vue'
 import aboutHero from '../assets/Sujeto.png'
 import behanceVerticality from '../assets/behance-verticality.webp'
-import behanceCascroty from '../assets/cascroty/Ilustración_sin_título.png'
+import behanceCascroty from '../assets/cascroty/publi1.png'
 import openaiLogo from '../assets/icons/openai.svg'
 import elevenlabsLogo from '../assets/icons/elevenlabs.svg'
 export default {

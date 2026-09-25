@@ -1,7 +1,7 @@
 <template>
-    <Navbar v-if="$route.name !== 'About' && $route.name !== 'Contact'" />
+    <Navbar v-if="!['About', 'Contact', 'Cascroty'].includes($route.name)" />
     <router-view />
-    <Footer />
+    <Footer v-if="$route.name !== 'Cascroty'" />
 </template>
 
 <script>

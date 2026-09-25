@@ -23,7 +23,7 @@
         </article>
       </section>
 
-      <section class="showcase section-shell" aria-labelledby="showcase-title"><div class="section-heading section-heading--split"><p class="section-index">01 — Product showcase</p><div><h2 id="showcase-title">Una experiencia que invita a <em>entrar jugando.</em></h2></div></div><div class="media-showcase media-showcase--product" aria-label="Demo en vídeo de Juego y Leo"><figure class="device-mockup device-mockup--ipad"><div class="device-mockup__camera" aria-hidden="true"></div><video :src="assets.ipadVideo" :poster="assets.exercisePoster" controls muted loop playsinline preload="none" aria-label="Vídeo de Juego y Leo en iPad"></video></figure></div><div class="cta-actions cta-actions--showcase"><a class="cta-button cta-button--primary" :href="projectLinks.demo" target="_blank" rel="noopener noreferrer">Abrir demo <span aria-hidden="true">↗</span></a><a v-if="projectLinks.github" class="cta-button" :href="projectLinks.github" target="_blank" rel="noopener noreferrer">Ver GitHub <span aria-hidden="true">↗</span></a></div></section>
+      <section class="showcase section-shell" aria-labelledby="showcase-title"><div class="section-heading section-heading--split"><p class="section-index">01 — Product showcase</p><div><h2 id="showcase-title">Una experiencia que invita a <em>entrar jugando.</em></h2></div></div><div class="media-showcase media-showcase--product" aria-label="Vista de Juego y Leo"><figure class="device-mockup device-mockup--ipad"><div class="device-mockup__camera" aria-hidden="true"></div><img :src="assets.exercisePoster" alt="Actividad interactiva de Juego y Leo en iPad"></figure></div><div class="cta-actions cta-actions--showcase"><a class="cta-button cta-button--primary" :href="projectLinks.demo" target="_blank" rel="noopener noreferrer">Abrir demo <span aria-hidden="true">↗</span></a><a v-if="projectLinks.github" class="cta-button" :href="projectLinks.github" target="_blank" rel="noopener noreferrer">Ver GitHub <span aria-hidden="true">↗</span></a></div></section>
 
       <section class="challenge-solution" aria-label="Reto"><article class="challenge-solution__panel challenge" aria-labelledby="challenge-title"><div><p class="section-index">02 — Challenge</p><h2 id="challenge-title">Diseñar para que aprender no se sienta como una barrera.</h2><p>El reto es unir aprendizaje infantil, accesibilidad cognitiva e interacción en una experiencia fácil de comprender, atractiva y capaz de acompañar diferentes ritmos.</p></div><figure class="device-mockup device-mockup--report"><div class="device-mockup__camera" aria-hidden="true"></div><div class="exercise-slider" aria-live="off"><Transition name="exercise-slide" mode="out-in"><img :key="currentExercise" :src="activeExercise.src" :alt="activeExercise.alt"></Transition></div><figcaption class="exercise-controls" aria-label="Controles del carrusel de ejercicios"><button type="button" aria-label="Ejercicio anterior" @click="previousExercise">←</button><button type="button" :aria-label="isExercisePaused ? 'Reanudar carrusel' : 'Pausar carrusel'" @click="toggleExerciseTimer">{{ isExercisePaused ? '▶' : 'Ⅱ' }}</button><button type="button" aria-label="Ejercicio siguiente" @click="nextExercise">→</button></figcaption></figure></article></section>
 
@@ -44,13 +44,12 @@ import audio from '../assets/juego-leo/Captura de pantalla 2026-09-02 a las 20.1
 import tenses from '../assets/juego-leo/Captura de pantalla 2026-09-02 a las 20.18.13.png'
 import context from '../assets/juego-leo/Captura de pantalla 2026-09-02 a las 20.18.27.png'
 import sentence from '../assets/juego-leo/Captura de pantalla 2026-09-02 a las 20.19.07.png'
-import ipadVideo from '../assets/juego-leo/video01.MP4'
 export default {
   name: 'Portfolio',
   components: { LayoutBase },
   data: () => ({
     projectLinks: { demo: 'https://juego-leo.vercel.app/', github: '' },
-    assets: { logo, groupTandemLogo, homeBackground, exercisePoster: experienceImage, ipadVideo },
+    assets: { logo, groupTandemLogo, homeBackground, exercisePoster: experienceImage },
     currentExercise: 0,
     exerciseSlides: [
       { src: experienceImage, alt: 'Actividad para completar una frase eligiendo una palabra en Juego y Leo' },
