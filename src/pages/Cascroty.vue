@@ -80,7 +80,6 @@
             <img class="menu-card__combo-cup" :src="cupNoShadow" alt="Vaso de Cascroty">
             <img class="menu-card__sauce menu-card__sauce--andalus" :src="salsaAndalus" alt="Salsa al-Ándalus">
             <img class="menu-card__sauce menu-card__sauce--algerienne" :src="salsaAlgerienne" alt="Salsa algérienne">
-            <img class="menu-card__combo-burger" :src="burger" alt="Burger de Cascroty">
           </div>
           <p>BOCADILLO · PATATAS · BEBIDA</p>
           <strong class="menu-price">8,50€</strong>
