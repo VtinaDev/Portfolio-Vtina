@@ -2,14 +2,6 @@
   <LayoutBase class="home-layout">
     <section class="home-hero" aria-labelledby="home-title">
       <div class="home-hero__grid" aria-hidden="true"></div>
-      <div class="code-floats" aria-hidden="true">
-        <span class="code-float code-float--one">&lt;/&gt;</span>
-        <span class="code-float code-float--two">{ }</span>
-        <span class="code-float code-float--three">( )</span>
-        <span class="code-float code-float--four">/&gt;</span>
-        <span class="code-float code-float--five">[ ]</span>
-        <span class="code-float code-float--six">&lt; /</span>
-      </div>
       <section class="glass-panel" aria-label="Presentación de Vtina Dev">
         <div class="home-hero__main">
           <h1 id="home-title" class="fade-in delay-1">Hola, <em>Soy </em><strong class="home-hero__brand">Vtina&nbsp;Dev.</strong><br><span class="home-hero__role">Creative Frontend Developer.</span></h1>
