@@ -267,11 +267,11 @@ onBeforeUnmount(() => context?.revert())
 @media (max-width: 700px) {
   .menu-feature { min-height: 35rem; }
   .menu-feature__bag { bottom: 7%; left: -2%; width: 68vw !important; transform: none; }
-  .menu-feature__menu { display: block; width: 24vw !important; }
-  .menu-feature__menu--one { top: 21%; left: 25%; transform: rotate(-13deg); }
-  .menu-feature__menu--two { top: 15%; left: 38%; transform: rotate(0); }
-  .menu-feature__menu--three { top: 21%; left: 51%; transform: rotate(13deg); }
-  .menu-feature__box { display: block; right: 3%; bottom: 9%; width: 31vw !important; }
-  .menu-feature__burger { display: block; top: auto; bottom: 3%; left: 43%; width: 39vw !important; }
+  .menu-feature__menu { display: block; width: 29vw !important; }
+  .menu-feature__menu--one { top: 20%; left: 20%; transform: rotate(-13deg); }
+  .menu-feature__menu--two { top: 13%; left: 36%; transform: rotate(0); }
+  .menu-feature__menu--three { top: 20%; left: 52%; transform: rotate(13deg); }
+  .menu-feature__box { display: block; right: 2%; bottom: 10%; width: 36vw !important; }
+  .menu-feature__burger { display: block; top: auto; bottom: 11%; left: 41%; width: 45vw !important; }
 }
 </style>
