@@ -1,6 +1,5 @@
 <template>
   <main ref="page" class="cascroty-page">
-    <router-link to="/portfolio" class="portfolio-back-link">Volver al portfolio</router-link>
     <section class="hero" aria-label="Cascroty, Moroccan real food">
       <picture>
         <source media="(max-width: 700px)" :srcset="teapotMobile">
@@ -144,6 +143,7 @@
     </section>
 
     <footer class="case-footer">
+      <router-link to="/portfolio" class="portfolio-back-link">Volver al portfolio</router-link>
       <a href="https://www.behance.net/gallery/175132577/Cascroty-packaging-moroccan-real-food" target="_blank" rel="noopener noreferrer">View full project on Behance</a>
     </footer>
   </main>
@@ -203,7 +203,7 @@ onBeforeUnmount(() => context?.revert())
 :global(#app:has(.cascroty-page)) { max-width: none; min-height: 0; padding: 0; }
 .cascroty-page { --yellow: #e5ad00; --bright-yellow: #f6bf00; --green: #009a38; --deep-green: #005d30; --red: #b6200c; --ink: #00582c; overflow: hidden; background: var(--yellow); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
 .cascroty-page *, .cascroty-page *::before, .cascroty-page *::after { box-sizing: border-box; }
-.portfolio-back-link { position: fixed; z-index: 30; top: 1.25rem; left: 1.25rem; display: inline-flex; align-items: center; border: 2px solid transparent; border-radius: 999px; padding: .78rem 1.35rem; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(115deg, #fff9fb 0%, #ffd0a7 30%, #d95a12 68%, #fff 100%) border-box; color: #a83a0b; font-size: .82rem; font-weight: 800; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .94), inset 0 -1px 0 rgba(91, 25, 15, .18), 0 .3rem .8rem rgba(47, 3, 30, .1); transition: transform .25s ease, box-shadow .25s ease; }.portfolio-back-link:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .94), inset 0 -1px 0 rgba(91, 25, 15, .18), 0 .45rem 1rem rgba(47, 3, 30, .14); transform: translateY(-.2rem); }
+.portfolio-back-link { display: inline-flex; align-items: center; border: 1px solid rgba(255, 255, 255, .62); border-radius: 999px; padding: .85rem 1.35rem; background: linear-gradient(105deg, rgba(217, 74, 18, .88), rgba(194, 11, 90, .84), rgba(237, 22, 114, .8)); color: #fff; font-size: .9rem; font-weight: 800; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 .6rem 1.3rem rgba(122, 11, 60, .2); transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }.portfolio-back-link:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .78), 0 .8rem 1.5rem rgba(122, 11, 60, .26); color: #fff; filter: saturate(1.12) brightness(1.06); transform: translateY(-.2rem); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 .hero { position: relative; height: min(100svh, 60vw); min-height: 37rem; overflow: hidden; background: var(--yellow); isolation: isolate; }
 .hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
