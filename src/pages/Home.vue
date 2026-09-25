@@ -27,11 +27,12 @@ export default {
 
 <style scoped>
 :deep(.home-layout) { background: #fff; }
-:deep(.home-layout main) { padding: 0; background: inherit; }
+:deep(.home-layout main) { min-height: 0; padding: 0; background: inherit; }
 :global(body:has(.home-layout)), :global(#app:has(.home-layout)) { background: #fff; }
-:global(#app:has(.home-layout)) { max-width: none; padding: 0; }
-.home-hero { position: relative; display: grid; min-height: 100svh; grid-template-columns: minmax(0, 1fr); overflow: hidden; padding: 0; background: #fff; color: var(--brand-ink); isolation: isolate; }
-.glass-panel { position: relative; z-index: 1; display: grid; width: 100%; min-height: 100svh; justify-self: center; background: transparent; }.glass-panel::before, .glass-panel::after { display: none; }
+:global(#app:has(.home-layout)) { max-width: none; min-height: 100svh; padding: 0; }
+:global(#app:has(.home-layout) .footer) { margin: 0; background: #fff; }
+.home-hero { position: relative; display: grid; min-height: calc(100svh - 4.5rem); grid-template-columns: minmax(0, 1fr); overflow: hidden; padding: 0; background: #fff; color: var(--brand-ink); isolation: isolate; }
+.glass-panel { position: relative; z-index: 1; display: grid; width: 100%; min-height: calc(100svh - 4.5rem); justify-self: center; background: transparent; }.glass-panel::before, .glass-panel::after { display: none; }
 .home-hero__grid { display: none; }
 .code-floats { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
 .code-float { --rain-x: 1rem; --rain-y: 22rem; position: absolute; background: linear-gradient(145deg, #fff8fc 0%, #f9a4cd 35%, #c20b5a 68%, #fff 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: var(--brand-magenta); font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: clamp(1.8rem, 3.5vw, 4rem); font-weight: 400; letter-spacing: -.12em; line-height: 1; opacity: .16; text-shadow: 0 .08em .16em rgba(122, 11, 60, .32), 0 -.035em .06em rgba(255, 255, 255, .9); filter: drop-shadow(0 .16em .2em rgba(122, 11, 60, .2)); animation: code-rain 8s linear infinite; }
@@ -66,7 +67,7 @@ export default {
 .home-hero__actions .button--primary, .home-hero__actions .button--secondary { background: linear-gradient(145deg, rgba(255, 255, 255, .36), rgba(255, 255, 255, .1)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .64), 0 .55rem 1.3rem rgba(47, 3, 30, .16); }
 .home-hero__actions .button--primary:hover, .home-hero__actions .button--secondary:hover { background: linear-gradient(145deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, .16)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .84), 0 .8rem 1.5rem rgba(47, 3, 30, .24); }
 @keyframes code-rain { 0% { opacity: .12; transform: translate3d(0, -1.5rem, 0) scale(.86) rotate(-8deg); } 16% { opacity: .78; } 82% { opacity: .7; } 100% { opacity: .08; transform: translate3d(var(--rain-x), var(--rain-y), 0) scale(1.08) rotate(8deg); } }
-@media (max-width: 720px) { .home-hero { min-height: 100svh; grid-template-columns: 1fr; padding: 0; }.glass-panel { min-height: 100svh; }.home-hero__main { align-self: start; padding: 5.5rem 1.25rem 2rem; text-align: center; }.home-hero h1, .home-hero__intro { margin-left: auto; margin-right: auto; }.home-hero h1 { max-width: 100%; text-align: center; font-size: clamp(2.3rem, 12vw, 3.8rem); }.home-hero__role { white-space: normal; }.home-hero__actions { justify-content: center; } }
+@media (max-width: 720px) { .home-hero { min-height: calc(100svh - 7rem); grid-template-columns: 1fr; padding: 0; }.glass-panel { min-height: calc(100svh - 7rem); }.home-hero__main { align-self: start; padding: 5.5rem 1.25rem 2rem; text-align: center; }.home-hero h1, .home-hero__intro { margin-left: auto; margin-right: auto; }.home-hero h1 { max-width: 100%; text-align: center; font-size: clamp(2.3rem, 12vw, 3.8rem); }.home-hero__role { white-space: normal; }.home-hero__actions { justify-content: center; } }
 @media (max-width: 480px) { .home-hero { padding: 0; }.home-hero__main { padding-top: 5rem; }.home-hero h1 { font-size: clamp(2.15rem, 11.5vw, 3.2rem); line-height: 1.04; }.home-hero__intro { font-size: 1rem; }.home-hero__actions { display: grid; grid-template-columns: 1fr; width: min(100%, 18rem); margin-left: auto; margin-right: auto; }.home-hero__actions .button { justify-content: center; width: 100%; }.code-float--three, .code-float--six { display: none; } }
 @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; animation: none; }.code-float { animation: none; }.button { transition: none; } }
 </style>
