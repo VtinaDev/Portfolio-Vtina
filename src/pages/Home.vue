@@ -34,11 +34,11 @@ export default {
 </script>
 
 <style scoped>
-:deep(.home-layout) { background: radial-gradient(circle at 14% 12%, #ffae55, transparent 34%), radial-gradient(circle at 82% 82%, #ed1672, transparent 36%), linear-gradient(120deg, #d94a12, #c20b5a 54%, #5c0c48); }
+:deep(.home-layout) { background: #dcd8d8; }
 :deep(.home-layout main) { padding: 0; background: inherit; }
-:global(body:has(.home-layout)), :global(#app:has(.home-layout)) { background: radial-gradient(circle at 14% 12%, #ffae55, transparent 34%), radial-gradient(circle at 82% 82%, #ed1672, transparent 36%), linear-gradient(120deg, #d94a12, #c20b5a 54%, #5c0c48); }
+:global(body:has(.home-layout)), :global(#app:has(.home-layout)) { background: #dcd8d8; }
 :global(#app:has(.home-layout)) { max-width: none; padding: 0; }
-.home-hero { position: relative; display: grid; min-height: 100svh; grid-template-columns: minmax(0, 1fr); overflow: hidden; padding: clamp(5.8rem, 10vw, 8rem) clamp(1.25rem, 5vw, 4.5rem) clamp(2rem, 5vw, 4.5rem); background: radial-gradient(circle at 14% 12%, #ffae55, transparent 34%), radial-gradient(circle at 82% 82%, #ed1672, transparent 36%), linear-gradient(120deg, #d94a12, #c20b5a 54%, #5c0c48); color: var(--brand-ink); isolation: isolate; }
+.home-hero { position: relative; display: grid; min-height: 100svh; grid-template-columns: minmax(0, 1fr); overflow: hidden; padding: clamp(5.8rem, 10vw, 8rem) clamp(1.25rem, 5vw, 4.5rem) clamp(2rem, 5vw, 4.5rem); background: #dcd8d8; color: var(--brand-ink); isolation: isolate; }
 .glass-panel { position: relative; z-index: 1; display: grid; width: min(100%, 80rem); min-height: calc(100svh - 13rem); justify-self: center; border-radius: clamp(1.75rem, 3vw, 3rem); background: transparent; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .48), inset 0 -1px 0 rgba(92, 12, 72, .34), 0 .7rem 0 rgba(255, 255, 255, .12), 0 1.65rem 3.5rem rgba(91, 25, 15, .28); }.glass-panel::before { position: absolute; inset: 0; border-radius: inherit; padding: 2px; background: radial-gradient(circle at 14% 12%, #ffae55, transparent 34%), radial-gradient(circle at 82% 82%, #ed1672, transparent 36%), linear-gradient(120deg, #d94a12, #c20b5a 54%, #5c0c48); content: ''; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }.glass-panel::after { display: none; }
 .home-hero__grid { display: none; }
 .code-floats { position: absolute; inset: 0; z-index: -1; pointer-events: none; }
