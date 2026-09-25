@@ -1,8 +1,6 @@
 <template>
   <main ref="page" class="cascroty-page">
-    <router-link to="/portfolio" class="portfolio-back-link" aria-label="Volver al portfolio">
-      <span aria-hidden="true">←</span> Volver al portfolio
-    </router-link>
+    <router-link to="/portfolio" class="portfolio-back-link">Volver al portfolio</router-link>
     <section class="hero" aria-label="Cascroty, Moroccan real food">
       <picture>
         <source media="(max-width: 700px)" :srcset="teapotMobile">
@@ -205,7 +203,7 @@ onBeforeUnmount(() => context?.revert())
 :global(#app:has(.cascroty-page)) { max-width: none; min-height: 0; padding: 0; }
 .cascroty-page { --yellow: #e5ad00; --bright-yellow: #f6bf00; --green: #009a38; --deep-green: #005d30; --red: #b6200c; --ink: #00582c; overflow: hidden; background: var(--yellow); color: var(--ink); font-family: Arial, Helvetica, sans-serif; }
 .cascroty-page *, .cascroty-page *::before, .cascroty-page *::after { box-sizing: border-box; }
-.portfolio-back-link { position: fixed; z-index: 30; top: 1.25rem; left: 1.25rem; display: inline-flex; align-items: center; gap: .5rem; border: .14rem solid #f5c100; border-radius: 999px; padding: .65rem .9rem; background: rgba(0, 93, 48, .94); color: #f5c100; font-size: .72rem; font-weight: 900; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; box-shadow: .2rem .25rem 0 rgba(0, 48, 21, .28); transition: transform .2s ease, background .2s ease; }.portfolio-back-link:hover { background: #b6200c; transform: translateY(-.12rem); }.portfolio-back-link span { font-size: 1rem; line-height: .8; }
+.portfolio-back-link { position: fixed; z-index: 30; top: 1.25rem; left: 1.25rem; display: inline-flex; align-items: center; border: 2px solid transparent; border-radius: 999px; padding: .78rem 1.35rem; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(115deg, #fff9fb 0%, #ffd0a7 30%, #d95a12 68%, #fff 100%) border-box; color: #a83a0b; font-size: .82rem; font-weight: 800; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .94), inset 0 -1px 0 rgba(91, 25, 15, .18), 0 .3rem .8rem rgba(47, 3, 30, .1); transition: transform .25s ease, box-shadow .25s ease; }.portfolio-back-link:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .94), inset 0 -1px 0 rgba(91, 25, 15, .18), 0 .45rem 1rem rgba(47, 3, 30, .14); transform: translateY(-.2rem); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
 .hero { position: relative; height: min(100svh, 60vw); min-height: 37rem; overflow: hidden; background: var(--yellow); isolation: isolate; }
 .hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
