@@ -272,6 +272,6 @@ onBeforeUnmount(() => context?.revert())
   .menu-feature__menu--two { top: 13%; left: 36%; transform: rotate(0); }
   .menu-feature__menu--three { top: 20%; left: 52%; transform: rotate(13deg); }
   .menu-feature__box { display: block; right: 11%; bottom: 10%; width: 36vw !important; }
-  .menu-feature__burger { display: block; top: auto; bottom: 33%; left: 39%; width: 45vw !important; }
+  .menu-feature__burger { display: block; top: auto; bottom: 33%; left: 49%; width: 45vw !important; }
 }
 </style>
