@@ -11,7 +11,7 @@
         <span class="code-float code-float--six">&lt; /</span>
       </div>
       <div class="home-hero__main">
-        <h1 id="home-title" class="fade-in delay-1">Hola, <em>Soy </em>Vtina Dev.<br>Creative Frontend Developer.</h1>
+        <h1 id="home-title" class="fade-in delay-1">Hola, <em>Soy </em><strong class="home-hero__brand">Vtina&nbsp;Dev.</strong><br>Creative Frontend Developer.</h1>
         <p class="home-hero__intro fade-in delay-2">Uno comunicación visual, UX/UI y Desarrollo Frontend para crear experiencias con propósito.</p>
         <div class="home-hero__actions fade-in delay-3">
           <router-link to="/portfolio" class="button button--primary">Explorar proyectos</router-link>
@@ -44,6 +44,7 @@ export default {
 .home-hero__eyebrow { margin: 1.4rem 0 0; color: var(--brand-amber); font-size: .72rem; font-weight: 800; letter-spacing: .13em; text-transform: uppercase; }
 .home-hero__main { z-index: 1; align-self: center; padding: clamp(2rem, 5vw, 4rem) 0; text-align: left; }
 .home-hero h1 { max-width: 11ch; margin: 0; background: linear-gradient(105deg, #8b270e 0%, #e76f22 28%, #931b3d 52%, #f72585 72%, #79044d 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-family: Arial, sans-serif; font-size: clamp(2.35rem, 5.5vw, 5.5rem); font-weight: 400; letter-spacing: -.085em; line-height: .82; }.home-hero h1 em { color: inherit; font-family: Georgia, serif; font-weight: 400; letter-spacing: -.1em; }
+.home-hero__brand { font-weight: 800; white-space: nowrap; }
 .home-hero__intro { max-width: 31rem; margin: clamp(1.8rem, 3vw, 2.8rem) 0 0; color: var(--brand-wine); font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.55; }
 .home-hero h1 em { font-family: inherit; font-size: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; }
 .home-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }.button { display: inline-flex; align-items: center; gap: .8rem; border: 1px solid rgba(255, 255, 255, .62); border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 .55rem 1.3rem rgba(122, 11, 60, .14); padding: .85rem 1.25rem; font-weight: 800; text-decoration: none; backdrop-filter: blur(.7rem); -webkit-backdrop-filter: blur(.7rem); transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease; }.button:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .82), 0 .8rem 1.5rem rgba(122, 11, 60, .22); text-decoration: none; transform: translateY(-.2rem); }.button--primary { background: linear-gradient(105deg, rgba(147, 27, 61, .9), rgba(194, 11, 90, .86) 52%, rgba(247, 37, 133, .84)); color: #fff; }.button--secondary { border-color: rgba(194, 11, 90, .25); background: linear-gradient(145deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .18)); color: var(--brand-magenta); }.button--secondary:hover { border-color: rgba(237, 22, 114, .4); background: linear-gradient(145deg, rgba(255, 255, 255, .74), rgba(237, 22, 114, .12)); color: var(--brand-magenta); }
