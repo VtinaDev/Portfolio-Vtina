@@ -266,12 +266,12 @@ onBeforeUnmount(() => context?.revert())
 @media (max-width: 700px) { .menu-feature { min-height: 42rem; }.menu-feature__bag { bottom: 4%; left: 50%; width: 70vw !important; transform: translateX(-50%); }.menu-feature__menu { width: 76vw !important; }.menu-feature__menu--one { top: 7%; left: 12%; transform: rotate(-4deg); }.menu-feature__menu--two, .menu-feature__menu--three, .menu-feature__box, .menu-feature__burger { display: none; } }
 @media (max-width: 700px) {
   .menu-feature { min-height: 35rem; }
-  .menu-feature__bag { bottom: 12%; left: -2%; width: 68vw !important; transform: none; }
+  .menu-feature__bag { bottom: 10%; left: -4%; width: 76vw !important; transform: none; }
   .menu-feature__menu { display: block; width: 29vw !important; }
   .menu-feature__menu--one { top: 20%; left: 20%; transform: rotate(-13deg); }
   .menu-feature__menu--two { top: 13%; left: 36%; transform: rotate(0); }
   .menu-feature__menu--three { top: 20%; left: 52%; transform: rotate(13deg); }
   .menu-feature__box { display: block; right: 11%; bottom: 10%; width: 36vw !important; }
-  .menu-feature__burger { display: block; top: auto; bottom: 20%; left: 41%; width: 45vw !important; }
+  .menu-feature__burger { display: block; top: auto; bottom: 33%; left: 39%; width: 45vw !important; }
 }
 </style>
