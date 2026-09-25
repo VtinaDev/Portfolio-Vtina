@@ -266,12 +266,12 @@ onBeforeUnmount(() => context?.revert())
 @media (max-width: 700px) { .menu-feature { min-height: 42rem; }.menu-feature__bag { bottom: 4%; left: 50%; width: 70vw !important; transform: translateX(-50%); }.menu-feature__menu { width: 76vw !important; }.menu-feature__menu--one { top: 7%; left: 12%; transform: rotate(-4deg); }.menu-feature__menu--two, .menu-feature__menu--three, .menu-feature__box, .menu-feature__burger { display: none; } }
 @media (max-width: 700px) {
   .menu-feature { min-height: 42rem; }
-  .menu-feature__bag { bottom: 7%; left: -3%; width: 66vw !important; transform: none; }
+  .menu-feature__bag { bottom: 3%; left: -3%; width: 66vw !important; transform: none; }
   .menu-feature__menu { display: block; width: 19vw !important; }
-  .menu-feature__menu--one { top: 18%; left: 30%; transform: rotate(-13deg); }
-  .menu-feature__menu--two { top: 14%; left: 40%; transform: rotate(0); }
-  .menu-feature__menu--three { top: 18%; left: 50%; transform: rotate(13deg); }
-  .menu-feature__box { display: block; right: 4%; bottom: 9%; width: 28vw !important; }
-  .menu-feature__burger { display: block; top: auto; bottom: -2%; left: 34%; width: 35vw !important; }
+  .menu-feature__menu--one { top: 22%; left: 30%; transform: rotate(-13deg); }
+  .menu-feature__menu--two { top: 18%; left: 40%; transform: rotate(0); }
+  .menu-feature__menu--three { top: 22%; left: 50%; transform: rotate(13deg); }
+  .menu-feature__box { display: block; right: 4%; bottom: 5%; width: 28vw !important; }
+  .menu-feature__burger { display: block; top: auto; bottom: -6%; left: 34%; width: 35vw !important; }
 }
 </style>
