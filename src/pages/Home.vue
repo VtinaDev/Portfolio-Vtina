@@ -11,7 +11,7 @@
         <span class="code-float code-float--six">&lt; /</span>
       </div>
       <div class="home-hero__main">
-        <h1 id="home-title" class="fade-in delay-1">Hola, <em>Soy </em><strong class="home-hero__brand">Vtina&nbsp;Dev.</strong><br>Creative Frontend Developer.</h1>
+        <h1 id="home-title" class="fade-in delay-1">Hola, <em>Soy </em><strong class="home-hero__brand">Vtina&nbsp;Dev.</strong><br><span class="home-hero__role">Creative Frontend Developer.</span></h1>
         <p class="home-hero__intro fade-in delay-2">Uno comunicación visual, UX/UI y Desarrollo Frontend para crear experiencias con propósito.</p>
         <div class="home-hero__actions fade-in delay-3">
           <router-link to="/portfolio" class="button button--primary">Explorar proyectos</router-link>
@@ -45,6 +45,7 @@ export default {
 .home-hero__main { z-index: 1; align-self: center; padding: clamp(2rem, 5vw, 4rem) 0; text-align: left; }
 .home-hero h1 { max-width: 11ch; margin: 0; background: linear-gradient(105deg, #8b270e 0%, #e76f22 28%, #931b3d 52%, #f72585 72%, #79044d 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; font-family: Arial, sans-serif; font-size: clamp(2.35rem, 5.5vw, 5.5rem); font-weight: 400; letter-spacing: -.085em; line-height: .82; }.home-hero h1 em { color: inherit; font-family: Georgia, serif; font-weight: 400; letter-spacing: -.1em; }
 .home-hero__brand { font-weight: 800; white-space: nowrap; }
+.home-hero__role { white-space: nowrap; }
 .home-hero__intro { max-width: 31rem; margin: clamp(1.8rem, 3vw, 2.8rem) 0 0; color: var(--brand-wine); font-size: clamp(1.05rem, 1.8vw, 1.3rem); line-height: 1.55; }
 .home-hero h1 em { font-family: inherit; font-size: inherit; font-style: normal; font-weight: inherit; letter-spacing: inherit; }
 .home-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }.button { display: inline-flex; align-items: center; gap: .8rem; border: 1px solid rgba(255, 255, 255, .62); border-radius: 999px; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 .55rem 1.3rem rgba(122, 11, 60, .14); padding: .85rem 1.25rem; font-weight: 800; text-decoration: none; backdrop-filter: blur(.7rem); -webkit-backdrop-filter: blur(.7rem); transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease; }.button:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .82), 0 .8rem 1.5rem rgba(122, 11, 60, .22); text-decoration: none; transform: translateY(-.2rem); }.button--primary { background: linear-gradient(105deg, rgba(147, 27, 61, .9), rgba(194, 11, 90, .86) 52%, rgba(247, 37, 133, .84)); color: #fff; }.button--secondary { border-color: rgba(194, 11, 90, .25); background: linear-gradient(145deg, rgba(255, 255, 255, .62), rgba(255, 255, 255, .18)); color: var(--brand-magenta); }.button--secondary:hover { border-color: rgba(237, 22, 114, .4); background: linear-gradient(145deg, rgba(255, 255, 255, .74), rgba(237, 22, 114, .12)); color: var(--brand-magenta); }
@@ -61,14 +62,14 @@ export default {
 .home-hero__actions .button--secondary { border: 2px solid transparent; background: linear-gradient(#fff, #fff) padding-box, linear-gradient(115deg, #fff8fc 0%, #f9a4cd 35%, #c20b5a 68%, #fff 100%) border-box; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .94), inset 0 -1px 0 rgba(122, 11, 60, .18), 0 .3rem .8rem rgba(47, 3, 30, .1); }
 .home-hero__actions .button--primary:hover { background: linear-gradient(#fff, #fff) padding-box, linear-gradient(115deg, #fff9fb 0%, #ffd0a7 30%, #d95a12 68%, #fff 100%) border-box; }
 .home-hero__actions .button--secondary:hover { background: linear-gradient(#fff, #fff) padding-box, linear-gradient(115deg, #fff8fc 0%, #f9a4cd 35%, #c20b5a 68%, #fff 100%) border-box; }
-.home-hero__main { justify-self: center; width: min(100%, 58rem); text-align: center; }
+.home-hero__main { justify-self: center; width: min(100%, 75rem); text-align: center; }
 .home-hero h1, .home-hero__intro { margin-left: auto; margin-right: auto; text-align: center; }
-.home-hero h1 { max-width: 12ch; }
+.home-hero h1 { max-width: none; font-size: clamp(2.35rem, 4.7vw, 5rem); }
 .home-hero__actions { justify-content: center; }
 .home-hero__actions .button, .home-hero__actions .button--primary, .home-hero__actions .button--secondary { border: 1px solid rgba(255, 255, 255, .62); background: linear-gradient(105deg, rgba(217, 74, 18, .88), rgba(194, 11, 90, .84), rgba(237, 22, 114, .8)); color: #fff; padding: .85rem 1.35rem; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 .6rem 1.3rem rgba(122, 11, 60, .2); }
 .home-hero__actions .button:hover, .home-hero__actions .button--primary:hover, .home-hero__actions .button--secondary:hover { background: linear-gradient(105deg, rgba(217, 74, 18, .96), rgba(194, 11, 90, .92), rgba(237, 22, 114, .88)); color: #fff; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .78), 0 .8rem 1.5rem rgba(122, 11, 60, .26); }
 @keyframes code-rain { 0% { opacity: .12; transform: translate3d(0, -1.5rem, 0) scale(.86) rotate(-8deg); } 16% { opacity: .78; } 82% { opacity: .7; } 100% { opacity: .08; transform: translate3d(var(--rain-x), var(--rain-y), 0) scale(1.08) rotate(8deg); } }
-@media (max-width: 720px) { .home-hero { min-height: 100svh; grid-template-columns: 1fr; padding: 5.5rem 1.25rem 0; }.home-hero__main { align-self: start; padding: 1.5rem 0 0; text-align: center; }.home-hero h1, .home-hero__intro { margin-left: auto; margin-right: auto; }.home-hero h1 { max-width: 100%; text-align: center; font-size: clamp(2.3rem, 12vw, 3.8rem); }.home-hero__actions { justify-content: center; } }
+@media (max-width: 720px) { .home-hero { min-height: 100svh; grid-template-columns: 1fr; padding: 5.5rem 1.25rem 0; }.home-hero__main { align-self: start; padding: 1.5rem 0 0; text-align: center; }.home-hero h1, .home-hero__intro { margin-left: auto; margin-right: auto; }.home-hero h1 { max-width: 100%; text-align: center; font-size: clamp(2.3rem, 12vw, 3.8rem); }.home-hero__role { white-space: normal; }.home-hero__actions { justify-content: center; } }
 @media (max-width: 480px) { .home-hero { padding: 5rem 1rem 0; }.home-hero__main { padding-top: 1rem; }.home-hero h1 { font-size: clamp(2.15rem, 11.5vw, 3.2rem); line-height: 1.04; }.home-hero__intro { font-size: 1rem; }.home-hero__actions { display: grid; grid-template-columns: 1fr; width: min(100%, 18rem); margin-left: auto; margin-right: auto; }.home-hero__actions .button { justify-content: center; width: 100%; }.code-float--three, .code-float--six { display: none; } }
 @media (prefers-reduced-motion: reduce) { .fade-in { opacity: 1; transform: none; animation: none; }.code-float { animation: none; }.button { transition: none; } }
 </style>
