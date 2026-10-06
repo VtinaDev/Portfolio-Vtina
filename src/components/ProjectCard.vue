@@ -1,5 +1,5 @@
 <template>
-  <div class="project-card">
+  <div class="project-card glass-card">
     <img :src="image" :alt="title" class="project-image" />
     <h3 class="project-title">{{ title }}</h3>
     <p class="project-description">{{ description }}</p>

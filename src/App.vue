@@ -23,11 +23,11 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f5f5f5; /* Color de fondo claro */
-  color: #333; /* Color de texto oscuro para buen contraste */
+  background-color: var(--brand-cream);
+  color: var(--brand-ink);
 }
 a {
-  color: #42b983; /* Color de enlace distintivo */
+  color: var(--brand-magenta);
   text-decoration: none;
 }
 a:hover {

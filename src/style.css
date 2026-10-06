@@ -1,20 +1,45 @@
 :root {
-  --brand-ink: #12070e;
-  --brand-wine: #4a0919;
-  --brand-magenta: #c20b5a;
-  --brand-pink: #ed1672;
-  --brand-orange: #d94a12;
-  --brand-amber: #ffae55;
-  --brand-cream: #fff4eb;
-  --brand-muted: #a98d99;
-  --brand-line: rgba(237, 22, 114, .22);
+  --brand-ink: #28000f;
+  --brand-wine: #b90038;
+  --brand-magenta: #ed008c;
+  --brand-pink: #f837aa;
+  --brand-orange: #ff6b00;
+  --brand-red: #d92a08;
+  --brand-amber: #ffb15c;
+  --brand-cream: #fff6f1;
+  --brand-muted: #855264;
+  --brand-line: rgba(237, 0, 140, .22);
+  --brand-gradient: linear-gradient(105deg, var(--brand-orange) 0%, var(--brand-red) 31%, var(--brand-wine) 58%, var(--brand-magenta) 100%);
+  --glass-greige: #d9d0c9;
+  --glass-greige-deep: #84746e;
+  --glass-dark-orange: #9d3e16;
+  --glass-orange: #ef6a1f;
+  --glass-fuchsia: #df1879;
+  --glass-blur: 20px;
+  --glass-saturation: 125%;
+  --glass-surface: rgba(222, 213, 207, .48);
+  --glass-surface-strong: rgba(241, 236, 232, .74);
+  --glass-border: rgba(255, 255, 255, .78);
+  --glass-inner-highlight: rgba(255, 255, 255, .88);
+  --glass-inner-shadow: rgba(102, 65, 51, .17);
+  --glass-shadow: rgba(91, 56, 51, .2);
+  --glass-transition: 240ms cubic-bezier(.2, .75, .3, 1);
+  --ui-depth-transition: 360ms cubic-bezier(.22, .8, .28, 1);
+  --liquid-glass-surface: rgba(255, 246, 241, .32);
+  --liquid-glass-surface-strong: rgba(255, 246, 241, .48);
+  --liquid-glass-border: rgba(255, 255, 255, .72);
+  --liquid-glass-highlight: rgba(255, 255, 255, .8);
+  --liquid-glass-shadow: rgba(108, 13, 51, .23);
+  --liquid-glass-blur: 18px;
+  --liquid-glass-ease: 320ms cubic-bezier(.22, .8, .28, 1);
+  --liquid-card-radius: 25px;
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light;
-  color: #1d1d1f;
-  background-color: #f7f7f8;
+  color: var(--brand-ink);
+  background-color: var(--brand-cream);
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -32,6 +57,13 @@ body, html, #app {
   width: 100%;
   height: 100%;
 }
+
+#app :is(h1, h2, h3) {
+  letter-spacing: -.045em;
+  text-wrap: balance;
+}
+
+#app p { text-wrap: pretty; }
 
 
 .page-container {
@@ -104,8 +136,8 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: #f7f7f8;
-  color: #1d1d1f;
+  background: var(--brand-cream);
+  color: var(--brand-ink);
 }
 
 h1 {
@@ -120,7 +152,7 @@ button {
   font-size: 1em;
   font-weight: 500;
   font-family: inherit;
-  background-color: #9c4c13;
+  background-color: var(--brand-wine);
   cursor: pointer;
   transition: border-color 0.25s;
 }
@@ -137,9 +169,10 @@ button:focus-visible {
 }
 
 #app {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   text-align: center;
 }
 
@@ -192,4 +225,132 @@ footer a {
 
 footer a:hover {
   transform: scale(1.1);
+}
+
+/* Liquid Glass UI — componentes reutilizables con la paleta de Vtina Dev. */
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card) {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--liquid-glass-border);
+  border-radius: var(--liquid-card-radius);
+  background: linear-gradient(145deg, var(--liquid-glass-surface-strong), var(--liquid-glass-surface));
+  box-shadow: inset 0 1px 1px var(--liquid-glass-highlight), inset 0 -8px 18px rgba(40, 0, 15, .1), 0 1.15rem 3rem var(--liquid-glass-shadow);
+  backdrop-filter: blur(var(--liquid-glass-blur)) saturate(135%);
+  -webkit-backdrop-filter: blur(var(--liquid-glass-blur)) saturate(135%);
+  transform: translateZ(0);
+  transform-style: preserve-3d;
+  transition: transform var(--liquid-glass-ease), box-shadow var(--liquid-glass-ease), border-color var(--liquid-glass-ease), filter var(--liquid-glass-ease);
+}
+
+/* El contenido de lectura de las tarjetas se alinea a la izquierda por defecto. */
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card, .project-card, .home-skill-group, .project-slider__overlay) {
+  text-align: left;
+}
+
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card)::before,
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card)::after {
+  position: absolute;
+  z-index: 0;
+  border-radius: inherit;
+  content: '';
+  pointer-events: none;
+}
+
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card)::before {
+  top: 1px;
+  right: 7%;
+  left: 7%;
+  height: 36%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .65), rgba(255, 255, 255, .08));
+  filter: blur(5px);
+  opacity: .8;
+  transition: transform var(--liquid-glass-ease), opacity var(--liquid-glass-ease);
+}
+
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card)::after {
+  right: -8%;
+  bottom: -18%;
+  width: 48%;
+  height: 44%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--brand-magenta) 34%, transparent), transparent 68%);
+  filter: blur(1rem);
+  opacity: .65;
+  transition: transform var(--liquid-glass-ease), opacity var(--liquid-glass-ease);
+}
+
+#app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card) > * { position: relative; z-index: 1; }
+#app .glass-card--featured {
+  background: linear-gradient(135deg, rgba(255, 246, 241, .58), rgba(255, 177, 92, .16) 48%, rgba(237, 0, 140, .15));
+  border-color: rgba(255, 255, 255, .82);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .92), inset 0 -10px 22px rgba(185, 0, 56, .1), 0 1.5rem 3.6rem rgba(185, 0, 56, .2);
+}
+
+/* Radio unificado para las tarjetas que conservan estilos propios de cada sección. */
+#app :is(.project-card, .home-skill-group, .home-about__identity-card, .behance-projects__item, .contact-form, .menu-card) {
+  border-radius: var(--liquid-card-radius);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  #app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card):hover {
+    border-color: rgba(255, 255, 255, .92);
+    box-shadow: inset 0 1px 1px rgba(255, 255, 255, .94), inset 0 -8px 18px rgba(40, 0, 15, .12), 0 1.45rem 3.5rem rgba(185, 0, 56, .25);
+    filter: brightness(1.035);
+    transform: translate3d(0, -4px, 0) perspective(60rem) rotateX(1deg) rotateY(-.55deg);
+  }
+  #app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card):hover::before { opacity: 1; transform: translate3d(8%, -4%, 0); }
+  #app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card):hover::after { opacity: .85; transform: translate3d(-12%, -10%, 0); }
+}
+
+#app .glass-button {
+  --glass-button-fill: linear-gradient(145deg, rgba(255, 255, 255, .36), rgba(255, 246, 241, .14));
+  --glass-button-ink: var(--brand-wine);
+  --glass-button-glow: rgba(237, 0, 140, .2);
+  position: relative;
+  isolation: isolate;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .58);
+  border-radius: 999px;
+  padding: .9rem 1.45rem;
+  background: var(--glass-button-fill);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, .56), inset 0 -4px 10px rgba(40, 0, 15, .09), 0 .6rem 1.35rem var(--glass-button-glow);
+  color: var(--glass-button-ink);
+  font-size: 1rem;
+  font-weight: 800;
+  line-height: 1.1;
+  text-decoration: none;
+  text-shadow: 0 1px rgba(255, 255, 255, .7);
+  backdrop-filter: blur(22px) saturate(120%);
+  -webkit-backdrop-filter: blur(22px) saturate(120%);
+  transition: transform var(--liquid-glass-ease), box-shadow var(--liquid-glass-ease), background var(--liquid-glass-ease), filter var(--liquid-glass-ease);
+}
+
+#app .glass-button::before,
+#app .glass-button::after { position: absolute; z-index: -1; border-radius: inherit; content: ''; pointer-events: none; }
+#app .glass-button::before { top: 1px; right: 12%; left: 12%; height: 34%; background: linear-gradient(180deg, rgba(255, 255, 255, .52), rgba(255, 255, 255, .02)); filter: blur(3px); transition: transform var(--liquid-glass-ease); }
+#app .glass-button::after { right: 15%; bottom: -38%; left: 15%; height: 62%; background: radial-gradient(ellipse, color-mix(in srgb, var(--brand-orange) 30%, transparent), transparent 70%); filter: blur(.75rem); opacity: .34; }
+#app .glass-button--primary { --glass-button-fill: linear-gradient(110deg, rgba(255, 107, 0, .58), rgba(185, 0, 56, .55) 56%, rgba(237, 0, 140, .5)); --glass-button-ink: var(--brand-cream); --glass-button-glow: rgba(185, 0, 56, .24); text-shadow: 0 1px rgba(40, 0, 15, .2); }
+#app .glass-button--secondary { --glass-button-fill: linear-gradient(145deg, rgba(255, 255, 255, .32), rgba(255, 246, 241, .1)); --glass-button-ink: var(--brand-wine); --glass-button-glow: rgba(255, 107, 0, .1); }
+#app .glass-button:focus-visible { outline: 3px solid var(--brand-magenta); outline-offset: 3px; }
+
+@media (hover: hover) and (pointer: fine) {
+  #app .glass-button:hover { border-color: rgba(255, 255, 255, .76); box-shadow: inset 0 1px 1px rgba(255, 255, 255, .68), inset 0 -4px 10px rgba(40, 0, 15, .08), 0 .9rem 1.65rem var(--glass-button-glow); filter: brightness(1.035); transform: translateY(-2px); }
+  #app .glass-button:hover::before { transform: translate3d(8%, -6%, 0); }
+  #app .glass-button:active { box-shadow: inset 0 3px 9px rgba(40, 0, 15, .22), inset 0 -1px 1px rgba(255, 255, 255, .5), 0 .3rem .7rem var(--glass-button-glow); filter: brightness(.97); transform: translateY(1px) scale(.985); }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  #app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card) { background: rgba(255, 246, 241, .93); }
+  #app .glass-card--featured { background: linear-gradient(135deg, rgba(255, 246, 241, .96), rgba(255, 177, 92, .42)); }
+  #app .glass-button { background: rgba(255, 246, 241, .9); }
+  #app .glass-button--primary { background: var(--brand-gradient); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card, .glass-button, .glass-button::before, .glass-button::after) { transition: none; }
+  #app :is(.glass-card, .learning-card, .course-card, .tool-card, .contact-card, .glass-button):hover,
+  #app .glass-button:active { filter: none; transform: none; }
 }

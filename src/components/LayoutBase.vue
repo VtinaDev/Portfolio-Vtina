@@ -1,5 +1,5 @@
 <template>
-  <div class="layout">
+  <div class="layout" :class="{ 'layout--full-bleed': fullBleed }">
     <main>
       <slot></slot>
     </main>
@@ -10,6 +10,12 @@
 <script>
 export default {
   name: 'LayoutBase',
+  props: {
+    fullBleed: {
+      type: Boolean,
+      default: false,
+    },
+  },
 }
 </script>
 
@@ -18,6 +24,14 @@ export default {
   padding: 2rem;
   min-height: calc(100vh - 160px); /* Ajusta altura según footer */
 }
-</style>
 
+.layout--full-bleed,
+.layout--full-bleed main {
+  width: 100% !important;
+  max-width: none !important;
+  min-height: 100svh;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+</style>
 

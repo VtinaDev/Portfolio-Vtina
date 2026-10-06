@@ -143,7 +143,7 @@
     </section>
 
     <footer class="case-footer">
-      <router-link to="/portfolio" class="portfolio-back-link">Volver al portfolio</router-link>
+      <router-link to="/portfolio" class="portfolio-back-link glass-button glass-button--primary">Volver al portfolio</router-link>
       <a href="https://www.behance.net/gallery/175132577/Cascroty-packaging-moroccan-real-food" target="_blank" rel="noopener noreferrer">View full project on Behance</a>
     </footer>
   </main>

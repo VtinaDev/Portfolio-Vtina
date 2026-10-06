@@ -1,5 +1,5 @@
 <template>
-  <a :href="link" target="_blank" rel="noopener noreferrer" class="btn">
+  <a :href="link" target="_blank" rel="noopener noreferrer" class="btn glass-button glass-button--primary">
     {{ text }}
   </a>
 </template>

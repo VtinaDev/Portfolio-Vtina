@@ -82,7 +82,7 @@ export default { name: 'Privacy', components: { LayoutBase } }
 :deep(.privacy-layout main) { padding: 0; }
 .privacy-page { max-width: 75rem; margin: 0 auto; padding: clamp(4rem, 9vw, 7rem) clamp(1.25rem, 5vw, 3rem) clamp(5rem, 10vw, 8rem); color: #2d1724; }
 .privacy-hero { max-width: 48rem; padding-bottom: clamp(3rem, 7vw, 5rem); }
-.eyebrow { margin: 0 0 .8rem; color: #d95a12; font-size: .73rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+.eyebrow { margin: 0 0 .8rem; color: var(--brand-orange); font-size: .73rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 h1, h2 { margin: 0; font-family: Arial, sans-serif; letter-spacing: -.05em; }
 h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: .95; }
 .privacy-hero > p:last-child { margin: 1.4rem 0 0; color: #665660; font-size: 1.08rem; line-height: 1.65; }
@@ -91,6 +91,6 @@ h1 { font-size: clamp(3rem, 7vw, 6rem); line-height: .95; }
 .privacy-content h2 { font-size: clamp(1.35rem, 2.5vw, 2rem); line-height: 1; }
 .privacy-content p { margin: 1rem 0 0; color: #665660; line-height: 1.65; }
 .privacy-content p + p { margin-top: .7rem; }
-.privacy-content a { color: #8c1748; font-weight: 700; }
+.privacy-content a { color: var(--brand-wine); font-weight: 700; }
 @media (max-width: 720px) { .privacy-content { grid-template-columns: 1fr; border-radius: 1.15rem; } .privacy-content section { min-height: auto; } }
 </style>
