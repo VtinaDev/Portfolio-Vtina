@@ -9,7 +9,7 @@
       <router-link :to="{ path: '/', hash: '#about' }">About</router-link>
       <router-link :to="{ path: '/', hash: '#tools' }">Tools</router-link>
       <router-link to="/portfolio">Projects</router-link>
-      <router-link to="/contact">Contact</router-link>
+      <router-link :to="{ path: '/', hash: '#contact' }">Contact</router-link>
     </div>
   </nav>
 </template>

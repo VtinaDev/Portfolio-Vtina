@@ -1,40 +1,51 @@
 <template>
-  <LayoutBase class="contact-layout">
-    <div class="contact-page">
-      <section class="contact-hero" aria-labelledby="contact-title">
-        <Navbar class="contact-hero__navbar" />
+  <component :is="embedded ? 'div' : LayoutBase" :class="{ 'contact-layout': !embedded }">
+    <div class="contact-page" :class="{ 'contact-page--embedded': embedded }">
+      <section id="contact" class="contact-hero" aria-label="Contacto">
+        <Navbar v-if="!embedded" class="contact-hero__navbar" />
         <div class="contact-hero__content">
-          <div class="contact-hero__headline">
+          <div v-if="false" class="contact-hero__headline">
             <p class="eyebrow">Trabajemos juntos</p>
-            <h1 id="contact-title">¿Tienes una idea?<br>Hagámosla digital.</h1>
+            <h1 id="contact-title">Hablemos del próximo proyecto</h1>
           </div>
           <div class="contact-hero__conversion">
+            <h1 class="contact-hero__title">Hablemos del próximo proyecto</h1>
             <p>Estoy disponible para nuevos retos, colaboraciones y oportunidades en equipos que cuidan los detalles.</p>
             <div class="contact-hero__actions">
-              <a class="cta glass-button glass-button--primary" href="#contact-form">Cuéntame tu proyecto</a>
+              <div class="contact-capsule" aria-label="Contacto y redes">
+                <a href="mailto:valentina3691@hotmail.com" aria-label="Escribir a Valentina por correo electrónico"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2.25 5.25A2.25 2.25 0 0 1 4.5 3h15a2.25 2.25 0 0 1 2.25 2.25v13.5A2.25 2.25 0 0 1 19.5 21h-15a2.25 2.25 0 0 1-2.25-2.25V5.25Zm2.25-.75a.75.75 0 0 0-.75.75v.39l8.25 5.5 8.25-5.5v-.39a.75.75 0 0 0-.75-.75h-15Zm15.75 2.94-7.83 5.22a.75.75 0 0 1-.84 0L3.75 7.44v11.31c0 .414.336.75.75.75h15a.75.75 0 0 0 .75-.75V7.44Z"/></svg></a>
+                <a href="https://wa.me/34639752175" target="_blank" rel="noopener noreferrer" aria-label="Escribir a Valentina por WhatsApp Business"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 3.5A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.96L0 24l6.3-1.65a11.9 11.9 0 0 0 5.74 1.46h.01c6.57 0 11.92-5.35 11.92-11.92 0-3.18-1.24-6.17-3.47-8.4ZM12.05 21.8a9.86 9.86 0 0 1-5.03-1.38l-.36-.21-3.74.98 1-3.65-.24-.38a9.87 9.87 0 1 1 8.37 4.64Zm5.41-7.4c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.48-1.77-1.65-2.07-.17-.3-.02-.46.13-.6.13-.13.3-.35.45-.52.15-.18.2-.3.3-.5.1-.2.05-.37-.03-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.8.37-.27.3-1.04 1.02-1.04 2.5 0 1.47 1.07 2.9 1.22 3.1.15.2 2.1 3.2 5.08 4.5.71.31 1.26.5 1.7.64.72.23 1.38.2 1.9.12.58-.09 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg></a>
+                <a href="https://www.linkedin.com/in/vtinadev" target="_blank" rel="noopener noreferrer" aria-label="Visitar el perfil de LinkedIn de Vtina Dev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.38-1.85 3.62 0 4.29 2.38 4.29 5.48v6.27ZM5.32 7.41a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14ZM7.1 20.45H3.54V8.98H7.1v11.47ZM22.23 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0Z"/></svg></a>
+                <a href="https://github.com/VtinaDev" target="_blank" rel="noopener noreferrer" aria-label="Visitar el perfil de GitHub de Vtina Dev"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 .3a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.22 1.84 1.22 1.07 1.82 2.81 1.3 3.49 1 .11-.77.42-1.3.76-1.6-2.67-.3-5.47-1.32-5.47-5.94 0-1.31.47-2.38 1.23-3.22-.12-.3-.53-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 0 1 6 0c2.29-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.12 3.17.77.84 1.23 1.91 1.23 2.18v3.23c0 .32.22.7.83.58A12 12 0 0 0 12 .3Z"/></svg></a>
+              </div>
               <a class="cta glass-button glass-button--secondary" href="/CV-tina.pdf" target="_blank" rel="noopener noreferrer">Ver CV</a>
             </div>
           </div>
+          <form id="contact-form" class="contact-form" @submit.prevent="sendEmail">
+            <div class="form-heading">
+              <p class="eyebrow eyebrow--dark">Escríbeme</p>
+            </div>
+            <label>
+              Nombre
+              <input v-model="name" type="text" name="name" autocomplete="name" placeholder="¿Cómo te llamas?" required>
+            </label>
+            <label>
+              Email
+              <input v-model="email" type="email" name="email" autocomplete="email" placeholder="tu@email.com" required>
+            </label>
+            <label>
+              Mensaje
+              <textarea v-model="message" name="message" placeholder="Cuéntame brevemente en qué puedo ayudarte" required></textarea>
+            </label>
+            <button type="submit" class="glass-button glass-button--secondary">Enviar mensaje</button>
+            <p v-if="status" class="status-message" aria-live="polite">{{ status }}</p>
+            <p class="privacy-note">Los datos enviados mediante este formulario se utilizarán únicamente para responder a tu mensaje. Consulta la <router-link to="/privacy">Política de Privacidad</router-link>.</p>
+          </form>
         </div>
       </section>
 
-      <section class="contact-card" aria-labelledby="form-title">
-        <aside class="contact-card__intro">
-          <p class="eyebrow eyebrow--dark">Conversemos</p>
-          <h2>Una buena conversación puede ser el inicio de algo grande.</h2>
-          <p>Cuéntame qué necesitas y te responderé lo antes posible. Me entusiasman los productos digitales que combinan estrategia, diseño y tecnología.</p>
-
-          <div class="contact-audiences">
-            <div>
-              <h3>Para reclutadores</h3>
-              <p>Estoy abierta a oportunidades frontend, UI/UX y productos digitales.</p>
-            </div>
-            <div>
-              <h3>Para proyectos</h3>
-              <p>Podemos convertir tu idea en una experiencia web clara, atractiva y útil.</p>
-            </div>
-          </div>
-
+      <section v-if="false" class="contact-card" aria-labelledby="form-title">
+        <aside v-if="false" class="contact-card__intro">
           <div class="social-section" aria-labelledby="social-title">
             <p id="social-title" class="eyebrow eyebrow--dark">Contacto y redes</p>
             <a class="social-link" href="mailto:valentina3691@hotmail.com" aria-label="Escribir a Valentina por correo electrónico">
@@ -55,7 +66,7 @@
         <form id="contact-form" class="contact-form" @submit.prevent="sendEmail">
           <div class="form-heading">
             <p class="eyebrow eyebrow--dark">Escríbeme</p>
-            <h2 id="form-title">Hablemos de tu próximo proyecto.</h2>
+            <h2 id="form-title">Hablemos del próximo proyecto</h2>
           </div>
           <label>
             Nombre
@@ -75,7 +86,7 @@
         </form>
       </section>
     </div>
-  </LayoutBase>
+  </component>
 </template>
 
 <script>
@@ -85,6 +96,12 @@ import Navbar from '../components/Navbar.vue'
 
 export default {
   name: 'Contact',
+  props: {
+    embedded: {
+      type: Boolean,
+      default: false
+    }
+  },
   components: { LayoutBase, Navbar },
   data() {
     return { name: '', email: '', message: '', status: '' }
@@ -124,21 +141,35 @@ export default {
 :deep(.contact-hero__navbar .nav-links a) { color: #fff; -webkit-text-fill-color: #fff; }
 :deep(.contact-hero__navbar .nav-links a.router-link-active) { border-bottom-color: #fff; }
 :deep(.contact-hero__navbar .nav-links a:hover) { color: var(--brand-amber); -webkit-text-fill-color: var(--brand-amber); }
-.contact-hero__content { position: relative; z-index: 1; display: grid; min-height: inherit; grid-template-columns: 1fr 1fr; align-items: end; gap: clamp(2rem, 8vw, 8rem); padding: clamp(7rem, 12vw, 10rem) clamp(2rem, 8vw, 8rem) clamp(3.5rem, 8vw, 7rem); text-align: left; }
+.contact-hero__content { position: relative; z-index: 1; display: grid; min-height: inherit; grid-template-columns: 1fr 1fr; align-items: start; gap: clamp(2rem, 8vw, 8rem); padding: clamp(7rem, 12vw, 10rem) clamp(2rem, 8vw, 8rem) clamp(3.5rem, 8vw, 7rem); text-align: left; }
+.contact-page--embedded .contact-hero { min-height: 0; border-radius: 2.5rem; }
+.contact-page--embedded { width: min(calc(100% - clamp(2.5rem, 8vw, 10rem)), 90rem); margin: 0 auto; }
+.contact-page--embedded .contact-hero__content { min-height: 0; padding-top: clamp(4rem, 8vw, 6rem); padding-bottom: clamp(2rem, 4vw, 3.5rem); }
+.contact-page--embedded .contact-hero__conversion { margin-top: clamp(1rem, 3vw, 2.5rem); }
+.contact-page--embedded .contact-form textarea { min-height: 5.5rem; }
+.contact-page--embedded .form-heading { margin-bottom: -.35rem; }
 .eyebrow { margin: 0 0 .75rem; color: var(--brand-orange); font-size: .78rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
 .contact-hero__headline .eyebrow { color: var(--brand-cream); }
 .eyebrow--dark { color: var(--brand-orange); }
 .contact-hero h1, .contact-card h2, .contact-audiences h3 { margin: 0; font-family: Arial, sans-serif; letter-spacing: -.045em; }
-.contact-hero h1 { max-width: 10ch; font-size: clamp(3rem, 7vw, 6.5rem); line-height: 1.04; }
-.contact-hero__conversion { justify-self: end; max-width: 23rem; padding-bottom: .55rem; }
+.contact-hero h1 { max-width: 10ch; font-size: clamp(3rem, 7vw, 6.5rem); font-weight: 400; line-height: 1.04; }
+.contact-hero__conversion { justify-self: start; max-width: 23rem; padding-bottom: .55rem; }
+.contact-hero__title { max-width: 16ch !important; margin: 0 0 1rem !important; font-size: clamp(1.65rem, 3vw, 2.45rem) !important; line-height: 1.08 !important; }
 .contact-hero__conversion > p { margin: 0; font-size: clamp(1rem, 1.6vw, 1.25rem); line-height: 1.5; }
-.contact-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 2rem; }
+.contact-hero__actions { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; margin-top: 2rem; }
 .cta { border: 1px solid rgba(255, 255, 255, .55); border-radius: 999px; background: linear-gradient(145deg, rgba(255, 255, 255, .36), rgba(255, 255, 255, .1)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .64), 0 .55rem 1.3rem rgba(47, 3, 30, .16); padding: .78rem 1.35rem; font-weight: 800; text-decoration: none; backdrop-filter: blur(.7rem); -webkit-backdrop-filter: blur(.7rem); transition: transform .25s ease, box-shadow .25s ease, background .25s ease; }
 .cta:hover { background: linear-gradient(145deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, .16)); box-shadow: inset 0 1px 0 rgba(255, 255, 255, .84), 0 .8rem 1.5rem rgba(47, 3, 30, .24); transform: translateY(-.2rem); text-decoration: none; }
+.contact-capsule { display: flex; gap: .85rem; margin-top: 1.25rem; }
+.contact-capsule a { display: grid; width: 2.2rem; height: 2.2rem; place-items: center; border: 1px solid rgba(255,255,255,.58); border-radius: 50%; background: rgba(255,255,255,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.42), 0 .3rem .8rem rgba(50,22,18,.12); color: #fff; transition: transform .25s cubic-bezier(.2,.8,.3,1), background .25s ease, border-color .25s ease; }
+.contact-capsule svg { width: 1.1rem; height: 1.1rem; fill: currentColor; }
+.contact-capsule a:hover, .contact-capsule a:focus-visible { border-color: #fff; background: rgba(255,255,255,.26); color: #fff; transform: translateY(-.2rem) scale(1.08); }
+.contact-capsule a:focus-visible { outline: 2px solid #fff; outline-offset: .2rem; }
 .cta--primary, .cta--secondary { color: #fff; }
+.contact-hero .cta--secondary, .contact-hero .cta--secondary:hover, .contact-hero .cta--secondary:focus-visible { color: #fff !important; -webkit-text-fill-color: #fff !important; }
 :global(#app .contact-hero .glass-button) { border: 1px solid rgba(255, 255, 255, .82); background: rgba(255, 255, 255, .18); box-shadow: 0 0 0 1px rgba(255, 255, 255, .16), 0 0 1.05rem rgba(255, 241, 228, .2), inset 0 1px 1px rgba(255, 255, 255, .78), inset 0 -4px 10px rgba(65, 34, 26, .14), 0 .65rem 1.4rem rgba(77, 12, 45, .24); }
+:global(#app .contact-hero a.cta--secondary) { --glass-button-ink: #fff; color: #fff !important; -webkit-text-fill-color: #fff !important; }
 
-.contact-card { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(3rem, 9vw, 9rem); padding: clamp(4rem, 9vw, 8rem) clamp(2rem, 8vw, 8rem); border-radius: 2.5rem; background: #fff; color: #1e1820; text-align: left; }
+.contact-card { display: grid; grid-template-columns: minmax(0, 40rem); justify-content: center; padding: clamp(4rem, 9vw, 8rem) clamp(2rem, 8vw, 8rem); border-radius: 2.5rem; background: #fff; color: #1e1820; text-align: left; }
 .contact-card__intro > p:not(.eyebrow) { max-width: 30rem; margin: 1.5rem 0 0; color: #5d5760; line-height: 1.7; }
 .contact-card h2 { max-width: 13ch; font-size: clamp(2rem, 4vw, 3.6rem); line-height: 1.03; }
 .contact-audiences { display: grid; gap: 1.2rem; margin-top: 2.5rem; }
@@ -153,6 +184,14 @@ export default {
 .social-link { width: auto; height: auto; border: 0; background: transparent; box-shadow: none; }
 .social-link:hover { border-color: transparent; background: transparent; box-shadow: none; }
 .contact-form { display: flex; flex-direction: column; gap: 1.1rem; padding: clamp(1.5rem, 4vw, 2.75rem); border: 1px solid #eee2e7; border-radius: 1.75rem; box-shadow: 0 1.25rem 3rem rgba(78, 16, 47, .09); }
+.contact-hero .contact-form { justify-self: end; width: min(100%, 27rem); border-color: rgba(255,255,255,.82); border-radius: 2.35rem; padding: clamp(1.25rem, 2.5vw, 1.75rem); background: linear-gradient(145deg, rgba(255,255,255,.34), rgba(255,245,240,.12)); box-shadow: 0 0 0 1px rgba(255,255,255,.28), inset 0 1px 0 rgba(255,255,255,.68), inset 0 -1px 0 rgba(255,255,255,.16), -.45rem .8rem 1.3rem rgba(87,157,255,.22), 0 1rem 1.8rem rgba(237,0,140,.24), .5rem .9rem 1.4rem rgba(255,183,84,.22); color: #fff; backdrop-filter: blur(28px) saturate(118%); -webkit-backdrop-filter: blur(28px) saturate(118%); }
+.contact-hero .contact-form label { color: rgba(255,255,255,.92); }
+.contact-hero .contact-form .eyebrow { color: var(--brand-wine); }
+.contact-hero .contact-form input, .contact-hero .contact-form textarea { border-color: rgba(255,255,255,.24); background: rgba(255,255,255,.12); color: #fff; }
+.contact-hero .contact-form input::placeholder, .contact-hero .contact-form textarea::placeholder { color: rgba(255,255,255,.62); }
+.contact-hero .contact-form input:focus, .contact-hero .contact-form textarea:focus { border-color: rgba(255,230,208,.8); box-shadow: 0 0 0 .22rem rgba(255,255,255,.13); }
+.contact-hero .contact-form .privacy-note, .contact-hero .contact-form .privacy-note a { color: rgba(255,255,255,.78); }
+:global(#app .contact-hero .contact-form button) { --glass-button-ink: #fff; border-color: rgba(255,255,255,.82) !important; background: rgba(255,255,255,.18) !important; box-shadow: 0 0 0 1px rgba(255,255,255,.16), 0 0 1.05rem rgba(255,241,228,.2), inset 0 1px 1px rgba(255,255,255,.78), inset 0 -4px 10px rgba(65,34,26,.14), 0 .65rem 1.4rem rgba(77,12,45,.24) !important; color: #fff; -webkit-text-fill-color: #fff; }
 .form-heading { margin-bottom: .4rem; }
 .form-heading h2 { max-width: 16ch; font-size: clamp(1.65rem, 3vw, 2.45rem); }
 .contact-form label { display: flex; flex-direction: column; gap: .5rem; color: #302832; font-size: .88rem; font-weight: 800; }
@@ -171,6 +210,7 @@ export default {
   .contact-hero { min-height: 38rem; border-radius: 0; }
   .contact-hero__content { display: flex; flex-direction: column; justify-content: flex-end; align-items: start; gap: 1.5rem; padding: 7rem 2rem 3rem; }
   .contact-hero__conversion { max-width: 21rem; padding: 0; }
+  .contact-hero .contact-form { align-self: stretch; justify-self: stretch; width: 100%; }
   .contact-card { grid-template-columns: 1fr; gap: 3rem; padding: 4rem 2rem; }
   .contact-card h2 { max-width: 16ch; }
   .social-link { margin-right: .5rem; }
@@ -185,7 +225,7 @@ export default {
   .contact-hero h1 { font-size: clamp(2.45rem, 12vw, 3.25rem); }
   .contact-hero__conversion { max-width: none; }
   .contact-hero__actions { display: grid; grid-template-columns: 1fr; width: min(100%, 18rem); }
-  .contact-hero__actions .cta { display: flex; justify-content: center; width: 100%; }
+  .contact-hero__actions .cta, .contact-hero__actions .contact-capsule { display: flex; justify-content: center; width: 100%; }
   .contact-card { gap: 2.5rem; padding: 3rem 1.25rem; }
 }
 
