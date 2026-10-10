@@ -143,7 +143,7 @@ import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import logo from '../assets/cascroty/Logo.png'
 import homeLogo from '../assets/mascot/logo.png'
-import teapotHero from '../assets/cascroty/cascroty-teapot-hero-wide.png'
+import teapotHero from '../assets/cascroty/cascroty-teapot-hero.png'
 import teapotMenu from '../assets/cascroty/tetera-y-te-menta.png'
 import bocadillo from '../assets/cascroty/bocadillo-individual-transparent.png'
 import bocadilloTernera from '../assets/cascroty/bocadillo-ternera-feature.png'
@@ -271,8 +271,9 @@ onBeforeUnmount(() => context?.revert())
 .counter-menu__board { gap: clamp(.35rem, .85vw, .8rem); }
 .menu-card { min-height: clamp(8rem, 13vw, 12rem); background: var(--green); border-color: var(--bright-yellow); }
 .menu-card--wide { min-height: clamp(7.25rem, 11.8vw, 10.75rem); }
-.counter-menu__board > .menu-card:nth-child(-n + 2) { min-height: clamp(5rem, 8vw, 7.5rem); }
+.counter-menu__board > .menu-card:nth-child(-n + 2) { min-height: clamp(4rem, 7vw, 6.5rem); }
 .counter-menu__board > .menu-card:nth-child(n + 3) { min-height: clamp(17rem, 27vw, 25rem); }
+.menu-price { background: var(--bright-yellow); }
 .menu-card h3, .menu-card p { color: var(--bright-yellow); }
 .menu-card--drink > img:not(.menu-card__burger) { position: absolute; z-index: 2; top: -8%; left: 10%; width: 105%; height: 115%; object-fit: contain; filter: drop-shadow(.28rem .38rem .28rem rgba(0, 48, 21, .46)); transform: none; transition: none; }
 .menu-card--drink .menu-card__burger { width: 54%; height: 54%; bottom: 2%; left: 8%; }
@@ -294,7 +295,7 @@ onBeforeUnmount(() => context?.revert())
 
 .cup-scene__cup { right: 5%; bottom: -6%; width: min(64vw, 60rem); filter: drop-shadow(1.35rem 1.8rem 1rem rgba(0, 42, 20, .68)); }
 @media (max-width: 700px) {
-  .cup-scene__cup { right: auto; bottom: -2%; left: -40%; width: 108vw; }
+  .cup-scene__cup { right: auto; bottom: -2%; left: -4%; width: 108vw; }
 }
 
 .case-home { position: absolute; z-index: 20; top: 1.25rem; left: 1.5rem; }
@@ -309,13 +310,22 @@ onBeforeUnmount(() => context?.revert())
 .real-food__beef { left: 50%; }
 .real-food__cheeseburger { left: 40%; }
 .hero__photo { z-index: 1; object-position: center; }
-.hero__logo { top: 66%; width: min(74vw, 70rem); }
+.hero__logo { top: 20%; width: min(74vw, 70rem); }
 @media (max-width: 700px) {
   .case-home { top: 1rem; left: 1rem; }
   .case-home__link img { width: 2.4rem; }
   .real-food__wraps { left: 1%; }
   .real-food__beef { left: 42%; }
   .real-food__cheeseburger { left: 30%; }
-  .hero__logo { top: 66%; width: 130vw; }
+  .hero__logo { top: 22%; width: 100vw; }
+  .counter-menu__board > .menu-card--wide { height: 15rem !important; min-height: 15rem !important; }
+  .menu-card__combo-product .menu-card__combo-chicken { bottom: 8%; left: 2%; width: 32% !important; height: 52% !important; }
+  .menu-card__combo-product .menu-card__combo-beef { bottom: 29%; left: 26%; width: 24% !important; height: 39% !important; }
+  .menu-card__combo-product .menu-card__combo-chees { bottom: 5%; left: 20%; width: 26% !important; height: 43% !important; }
+  .menu-card__combo-product .menu-card__combo-cup { top: auto; bottom: 3%; left: 37%; width: 50% !important; height: 68% !important; }
+  .menu-card__combo-product .menu-card__combo-fries { right: 5%; bottom: 4%; width: 21% !important; height: 43% !important; }
+  .menu-card__combo-product .menu-card__sauce { width: 11% !important; height: 15% !important; }
+  .menu-card__combo-product .menu-card__sauce--andalus { bottom: 5%; left: 48%; }
+  .menu-card__combo-product .menu-card__sauce--algerienne { bottom: 5%; left: 59%; }
 }
 </style>
