@@ -1,13 +1,14 @@
 <template>
   <main ref="page" class="cascroty-page">
+    <header class="case-home">
+      <router-link to="/" class="case-home__link" aria-label="Volver al inicio">
+        <img :src="homeLogo" alt="Vtina Dev">
+      </router-link>
+    </header>
+
     <section class="hero" aria-label="Cascroty, Moroccan real food">
-      <picture>
-        <source media="(max-width: 700px)" :srcset="teapotMobile">
-        <img class="hero__photo" :src="teapot" alt="Tetera marroquí sirviendo té con menta">
-      </picture>
       <img class="hero__logo" :src="logo" alt="Cascroty">
-      <img class="hero__pattern hero__pattern--left" :src="pattern" alt="" aria-hidden="true">
-      <img class="hero__pattern hero__pattern--right" :src="pattern" alt="" aria-hidden="true">
+      <img class="hero__photo" :src="teapotHero" alt="Bocadillo marroquí, té con menta y tetera">
       <span class="hero__scroll">Scroll to taste ↓</span>
     </section>
 
@@ -28,7 +29,6 @@
       <img class="real-food__wraps reveal" :src="bocadillo" alt="Bocadillo de pollo marroquí con ingredientes frescos">
       <img class="real-food__beef reveal" :src="bocadilloTerneraCutout" alt="Bocadillo de ternera marroquí con ingredientes frescos">
       <img class="real-food__cheeseburger" :src="burgerChees" alt="Cheeseburger de Cascroty">
-      <img class="real-food__hero-pattern" :src="patternYellow" alt="" aria-hidden="true">
       <div class="real-food__arabic-marquee real-food__arabic-marquee--bottom" aria-hidden="true">
         <div class="real-food__arabic-track">
           <img :src="darija" alt="">
@@ -44,11 +44,10 @@
     </section>
 
     <section class="paper-feature" aria-label="Papel de wrapping Cascroty">
-      <img class="paper-feature__pattern" :src="pattern" alt="" aria-hidden="true">
       <div class="paper-feature__carousel">
         <div class="paper-feature__track">
           <img class="paper-feature__image paper-feature__image--paper" :src="paper" alt="Papel de wrapping Cascroty">
-          <img class="paper-feature__image paper-feature__image--carton" :src="friesCarton" alt="Envase de patatas Cascroty">
+          <img class="paper-feature__image paper-feature__image--carton" :src="friesMockup" alt="Envase de patatas Cascroty">
           <img class="paper-feature__image paper-feature__image--delivery" :src="delivery" alt="Packaging de delivery Cascroty">
         </div>
       </div>
@@ -76,18 +75,13 @@
             <img class="menu-card__combo-chicken" :src="bocadillo" alt="Bocadillo de pollo de Cascroty">
             <img class="menu-card__combo-beef" :src="bocadilloTerneraCutout" alt="Bocadillo de ternera de Cascroty">
             <img class="menu-card__combo-chees" :src="burgerChees" alt="Burger-chees de Cascroty">
-            <img class="menu-card__combo-fries" :src="friesBox" alt="Caja de patatas de Cascroty">
-            <img class="menu-card__combo-cup" :src="cupNoShadow" alt="Vaso de Cascroty">
+            <img class="menu-card__combo-fries" :src="friesMockup" alt="Caja de patatas de Cascroty">
+            <img class="menu-card__combo-cup" :src="cup" alt="Vaso de Cascroty">
             <img class="menu-card__sauce menu-card__sauce--andalus" :src="salsaAndalus" alt="Salsa al-Ándalus">
             <img class="menu-card__sauce menu-card__sauce--algerienne" :src="salsaAlgerienne" alt="Salsa algérienne">
           </div>
           <p>BOCADILLO · PATATAS · BEBIDA</p>
           <strong class="menu-price">8,50€</strong>
-        </article>
-        <article class="menu-card">
-          <h3>PATATICAS</h3>
-          <img :src="friesBox" alt="Patatas de Cascroty">
-          <strong class="menu-price">3,50€</strong>
         </article>
         <article class="menu-card menu-card--chicken">
           <h3>POLLO A LA BRASA</h3>
@@ -98,14 +92,9 @@
         </article>
         <article class="menu-card menu-card--drink">
           <h3>REFRESCO + BOCADILLO</h3>
-          <img :src="cupNoShadow" alt="Vaso de refresco Cascroty">
-          <img class="menu-card__burger" :src="burger" alt="Burger de Cascroty">
+          <img :src="cup" alt="Vaso de refresco Cascroty">
+          <img class="menu-card__burger" :src="burgerChees" alt="Burger-chees de Cascroty">
           <strong class="menu-price">7,50€</strong>
-        </article>
-        <article class="menu-card menu-card--drink menu-card--refreshment">
-          <h3>REFRESCO</h3>
-          <img :src="cupNoShadow" alt="Vaso de refresco Cascroty">
-          <strong class="menu-price">2,00€</strong>
         </article>
         <article class="menu-card menu-card--beef">
           <h3>TERNERA A LA BRASA</h3>
@@ -126,7 +115,7 @@
       <img class="menu-feature__menu menu-feature__menu--one" :src="menu" alt="Menú de Cascroty">
       <img class="menu-feature__menu menu-feature__menu--two" :src="menu" alt="" aria-hidden="true">
       <img class="menu-feature__menu menu-feature__menu--three" :src="menu" alt="" aria-hidden="true">
-      <img class="menu-feature__box" :src="box" alt="Caja de patatas Cascroty">
+      <img class="menu-feature__box" :src="friesMockup" alt="Caja de patatas Cascroty">
       <img class="menu-feature__burger" :src="burger" alt="Burger de Cascroty">
     </section>
 
@@ -143,8 +132,7 @@
     </section>
 
     <footer class="case-footer">
-      <router-link to="/portfolio" class="portfolio-back-link glass-button glass-button--primary">Volver al portfolio</router-link>
-      <a href="https://www.behance.net/gallery/175132577/Cascroty-packaging-moroccan-real-food" target="_blank" rel="noopener noreferrer">View full project on Behance</a>
+      <a class="case-footer__behance" href="https://www.behance.net/gallery/175132577/Cascroty-packaging-moroccan-real-food" target="_blank" rel="noopener noreferrer">Ver proyecto completo en Behance</a>
     </footer>
   </main>
 </template>
@@ -154,27 +142,22 @@ import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import logo from '../assets/cascroty/Logo.png'
-import teapot from '../assets/cascroty/cascroty-teapot-hero-wide.png'
-import teapotMobile from '../assets/cascroty/cascroty-teapot-hero.png'
+import homeLogo from '../assets/mascot/logo.png'
+import teapotHero from '../assets/cascroty/cascroty-teapot-hero-wide.png'
 import teapotMenu from '../assets/cascroty/tetera-y-te-menta.png'
-import pattern from '../assets/cascroty/pattern-yellow.png'
-import patternYellow from '../assets/cascroty/pattern-yellow.png'
 import bocadillo from '../assets/cascroty/bocadillo-individual-transparent.png'
 import bocadilloTernera from '../assets/cascroty/bocadillo-ternera-feature.png'
 import bocadilloTerneraCutout from '../assets/cascroty/bocadillo-ternera.png'
-import menu from '../assets/cascroty/menu.png'
-import friesCarton from '../assets/cascroty/cascroty-fries-carton-transparent.png'
+import menu from '../assets/cascroty/Menú.png'
 import darija from '../assets/cascroty/Darijha-transparent.png'
-import cup from '../assets/cascroty/cup2.png'
-import cupNoShadow from '../assets/cascroty/Cup-sin-sombra.png'
+import cup from '../assets/cascroty/cup.png'
 import burger from '../assets/cascroty/burger.png'
 import burgerChees from '../assets/cascroty/burger-chees.png'
 import salsaAndalus from '../assets/cascroty/salsa-al-andalus.png'
 import salsaAlgerienne from '../assets/cascroty/salsa-algerienne.png'
 import delivery from '../assets/cascroty/Delivery.png'
 import paper from '../assets/cascroty/Papel-cropped.png'
-import friesBox from '../assets/cascroty/Caja-fritas.png'
-import box from '../assets/cascroty/box.png'
+import friesMockup from '../assets/cascroty/cascroty-fries-mockup-transparent.png'
 import presentacion from '../assets/cascroty/presentacion.png'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -185,7 +168,7 @@ onMounted(() => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   context = gsap.context(() => {
     gsap.timeline({ defaults: { ease: 'power3.out' } })
-      .from('.hero__photo', { scale: 1.07, duration: 1.3 })
+      .from('.hero__logo', { opacity: 0, scale: .92, duration: 1.3 })
       .from('.hero__scroll', { opacity: 0, y: 12, duration: .45 }, .7)
     gsap.utils.toArray('.reveal').forEach((element) => {
       gsap.from(element, { opacity: 0, y: 54, rotate: -2, duration: .85, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 84%', once: true } })
@@ -248,8 +231,8 @@ onBeforeUnmount(() => context?.revert())
 .paper-feature__image--paper { width: min(50vw, 41rem); height: min(54vw, 43rem); }.paper-feature__image--delivery { width: min(43vw, 35rem); height: min(50vw, 40rem); }
 @media (max-width: 700px) { .paper-feature__image--paper { width: 98vw; height: 28rem; }.paper-feature__image--delivery { width: 90vw; height: 27rem; } }
 .concept-copy { display: block; min-height: 0; margin: 0; padding: 0; border: 0; font-size: 0; line-height: 0; }.concept-copy > img { display: block; width: 100%; height: 100%; margin: 0; border: 0; object-fit: cover; }
-.menu-card__combo-product .menu-card__combo-chicken { z-index: 2; bottom: 14%; left: -4%; width: 45% !important; height: 74% !important; }.menu-card__combo-product .menu-card__combo-beef { z-index: 3; right: auto; bottom: 33%; left: 19%; width: 34% !important; height: 56% !important; }.menu-card__combo-product .menu-card__combo-chees { z-index: 4; right: auto; bottom: -2%; left: 16%; width: 33% !important; height: 56% !important; }.menu-card__combo-product .menu-card__combo-fries { z-index: 3; right: 4%; bottom: 2%; left: auto; width: 24% !important; height: 54% !important; }.menu-card__combo-product .menu-card__combo-cup { z-index: 2; right: auto; bottom: -58%; left: 25%; width: 66% !important; height: 195% !important; filter: none !important; }.menu-card__combo-product .menu-card__sauce { width: 14% !important; height: 19% !important; }.menu-card__combo-product .menu-card__sauce--andalus { z-index: 5; bottom: 4%; left: 40%; }.menu-card__combo-product .menu-card__sauce--algerienne { z-index: 5; bottom: 4%; left: 51%; }
-.menu-card__combo-product .menu-card__combo-chicken { z-index: 7; }.menu-card__combo-product .menu-card__combo-beef { z-index: 3; bottom: 33%; left: 26%; width: 29% !important; height: 48% !important; }.menu-card__combo-product .menu-card__combo-chees { z-index: 8; }.menu-card__combo-product .menu-card__sauce--andalus { left: 50%; }.menu-card__combo-product .menu-card__sauce--algerienne { left: 61%; }
+.menu-card__combo-product .menu-card__combo-chicken { z-index: 2; bottom: 14%; left: -4%; width: 41% !important; height: 68% !important; }.menu-card__combo-product .menu-card__combo-beef { z-index: 3; right: auto; bottom: 33%; left: 19%; width: 34% !important; height: 56% !important; }.menu-card__combo-product .menu-card__combo-chees { z-index: 4; right: auto; bottom: -2%; left: 16%; width: 30% !important; height: 51% !important; }.menu-card__combo-product .menu-card__combo-fries { z-index: 3; right: 4%; bottom: 2%; left: auto; width: 24% !important; height: 54% !important; }.menu-card__combo-product .menu-card__combo-cup { z-index: 2; right: auto; bottom: -58%; left: 25%; width: 66% !important; height: 195% !important; filter: none !important; }.menu-card__combo-product .menu-card__sauce { width: 14% !important; height: 19% !important; }.menu-card__combo-product .menu-card__sauce--andalus { z-index: 5; bottom: 4%; left: 40%; }.menu-card__combo-product .menu-card__sauce--algerienne { z-index: 5; bottom: 4%; left: 51%; }
+.menu-card__combo-product .menu-card__combo-chicken { z-index: 7; }.menu-card__combo-product .menu-card__combo-beef { z-index: 3; bottom: 33%; left: 26%; width: 26% !important; height: 43% !important; }.menu-card__combo-product .menu-card__combo-chees { z-index: 8; }.menu-card__combo-product .menu-card__sauce--andalus { left: 50%; }.menu-card__combo-product .menu-card__sauce--algerienne { left: 61%; }
 .cup-scene__text { max-width: 28rem; margin-top: 1.4rem !important; color: #f5c100; font-size: clamp(.78rem, 1.15vw, 1rem) !important; font-weight: 700 !important; letter-spacing: .04em !important; line-height: 1.45; text-transform: none !important; }.cup-scene__burger { position: absolute; z-index: 3; top: 46%; left: clamp(1.5rem, 10vw, 10rem); width: min(38vw, 32rem); filter: drop-shadow(-.6rem .8rem 0 rgba(0, 44, 18, .2)); animation: burger-spin 14s linear infinite; }
 @media (max-width: 700px) { .cup-scene__burger { top: 47%; left: 1.4rem; width: 75vw; }.cup-scene__text { max-width: 20rem; font-size: .72rem !important; } }
 .menu-feature { position: relative; min-height: min(58vw, 52rem); overflow: hidden; padding: 0; background: var(--bright-yellow); }.menu-feature img { position: absolute; display: block; max-height: none; object-fit: contain; filter: drop-shadow(.6rem .8rem .55rem rgba(61, 37, 0, .3)); }.menu-feature__bag { z-index: 2; bottom: 5%; left: 7%; width: min(28vw, 25rem) !important; }.menu-feature__menu { z-index: 3; top: 16%; left: 39%; width: min(31vw, 29rem) !important; transform: rotate(-7deg); }.menu-feature__box { z-index: 4; right: 7%; bottom: 6%; width: min(23vw, 21rem) !important; }.menu-feature__burger { z-index: 5; top: 7%; left: 42%; width: min(19vw, 17rem) !important; animation: burger-spin 14s linear infinite; }
@@ -274,5 +257,65 @@ onBeforeUnmount(() => context?.revert())
   .menu-feature__menu--three { top: 20%; left: 52%; transform: rotate(13deg); }
   .menu-feature__box { display: block; right: 11%; bottom: 10%; width: 36vw !important; }
   .menu-feature__burger { display: block; top: auto; bottom: 33%; left: 49%; width: 45vw !important; }
+}
+
+/* Composición restaurada con los mockups actuales. */
+.hero { background: var(--bright-yellow); }
+.hero__logo { z-index: 3; top: 57%; left: 50%; width: min(58vw, 56rem); transform: translate(-50%, -50%); }
+.hero__teapot { position: absolute; z-index: 2; top: 0; right: 0; width: 43%; height: 100%; object-fit: cover; object-position: right center; }
+.hero__pattern { width: min(38vw, 34rem); opacity: .48; mix-blend-mode: normal; animation: none; }
+.real-food__wraps { bottom: 18%; }
+.real-food__beef { bottom: 35%; }
+.real-food__cheeseburger { bottom: 18%; }
+.counter-menu__board { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-flow: row dense; max-width: 72rem; }
+.counter-menu__board { gap: clamp(.35rem, .85vw, .8rem); }
+.menu-card { min-height: clamp(8rem, 13vw, 12rem); background: var(--green); border-color: var(--bright-yellow); }
+.menu-card--wide { min-height: clamp(7.25rem, 11.8vw, 10.75rem); }
+.counter-menu__board > .menu-card:nth-child(-n + 2) { min-height: clamp(5rem, 8vw, 7.5rem); }
+.counter-menu__board > .menu-card:nth-child(n + 3) { min-height: clamp(17rem, 27vw, 25rem); }
+.menu-card h3, .menu-card p { color: var(--bright-yellow); }
+.menu-card--drink > img:not(.menu-card__burger) { position: absolute; z-index: 2; top: -8%; left: 10%; width: 105%; height: 115%; object-fit: contain; filter: drop-shadow(.28rem .38rem .28rem rgba(0, 48, 21, .46)); transform: none; transition: none; }
+.menu-card--drink .menu-card__burger { width: 54%; height: 54%; bottom: 2%; left: 8%; }
+.menu-card__combo-product .menu-card__combo-cup { z-index: 4; top: 4%; right: auto; bottom: auto; left: 30%; width: 70% !important; height: 88% !important; filter: drop-shadow(.3rem .42rem .3rem rgba(0, 48, 21, .46)) !important; }
+.menu-card__combo-product .menu-card__combo-fries { z-index: 5; right: 3%; bottom: -3%; left: auto; width: 32% !important; height: 68% !important; filter: drop-shadow(.28rem .4rem .3rem rgba(0, 48, 21, .48)) !important; }
+.paper-feature__image--carton { object-fit: contain; }
+.menu-feature__box { object-fit: contain; }
+.case-footer .portfolio-back-link { background: var(--red); }
+@media (max-width: 700px) {
+  .hero__logo { top: 58%; width: 92vw; }
+  .hero__teapot { width: 56%; object-position: right center; }
+  .real-food__wraps { bottom: 22%; }
+  .real-food__beef { bottom: 38%; }
+  .real-food__cheeseburger { bottom: 22%; }
+  .counter-menu__board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .menu-card { min-height: 8rem; }
+  .menu-card--wide { min-height: 9.25rem; }
+}
+
+.cup-scene__cup { right: 5%; bottom: -6%; width: min(64vw, 60rem); filter: drop-shadow(1.35rem 1.8rem 1rem rgba(0, 42, 20, .68)); }
+@media (max-width: 700px) {
+  .cup-scene__cup { right: auto; bottom: -2%; left: -40%; width: 108vw; }
+}
+
+.case-home { position: absolute; z-index: 20; top: 1.25rem; left: 1.5rem; }
+.case-home__link { display: block; line-height: 0; }
+.case-home__link img { width: 2.9rem; height: auto; transition: transform .2s ease; }
+.case-home__link:hover img { transform: scale(1.08); }
+.case-footer { min-height: 7rem; padding: 1.5rem; }
+.case-footer .case-footer__behance { border-bottom-width: 1px; font-size: clamp(.68rem, 1vw, .82rem); font-weight: 700; letter-spacing: .04em; }
+.menu-feature img { filter: drop-shadow(0 .25rem .18rem rgba(0, 48, 21, .78)) !important; }
+.menu-feature__box { z-index: 6; }
+.real-food__wraps { left: 22%; }
+.real-food__beef { left: 50%; }
+.real-food__cheeseburger { left: 40%; }
+.hero__photo { z-index: 1; object-position: center; }
+.hero__logo { top: 66%; width: min(74vw, 70rem); }
+@media (max-width: 700px) {
+  .case-home { top: 1rem; left: 1rem; }
+  .case-home__link img { width: 2.4rem; }
+  .real-food__wraps { left: 1%; }
+  .real-food__beef { left: 42%; }
+  .real-food__cheeseburger { left: 30%; }
+  .hero__logo { top: 66%; width: 130vw; }
 }
 </style>
