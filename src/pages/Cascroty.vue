@@ -7,7 +7,6 @@
     </header>
 
     <section class="hero" aria-label="Cascroty, Moroccan real food">
-      <img class="hero__logo" :src="logo" alt="Cascroty">
       <img class="hero__photo" :src="teapotHero" alt="Bocadillo marroquí, té con menta y tetera">
       <span class="hero__scroll">Scroll to taste ↓</span>
     </section>
@@ -39,16 +38,6 @@
           <span class="real-food__separator">✦</span>
           <span class="real-food__tagline">Moroccan real food</span>
           <span class="real-food__separator">✦</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="paper-feature" aria-label="Papel de wrapping Cascroty">
-      <div class="paper-feature__carousel">
-        <div class="paper-feature__track">
-          <img class="paper-feature__image paper-feature__image--paper" :src="paper" alt="Papel de wrapping Cascroty">
-          <img class="paper-feature__image paper-feature__image--carton" :src="friesMockup" alt="Envase de patatas Cascroty">
-          <img class="paper-feature__image paper-feature__image--delivery" :src="delivery" alt="Packaging de delivery Cascroty">
         </div>
       </div>
     </section>
@@ -113,9 +102,9 @@
     <section class="menu-feature" aria-label="Menú de Cascroty">
       <img class="menu-feature__bag" :src="delivery" alt="Bolsa de delivery Cascroty">
       <img class="menu-feature__menu menu-feature__menu--one" :src="menu" alt="Menú de Cascroty">
-      <img class="menu-feature__menu menu-feature__menu--two" :src="menu" alt="" aria-hidden="true">
-      <img class="menu-feature__menu menu-feature__menu--three" :src="menu" alt="" aria-hidden="true">
       <img class="menu-feature__box" :src="friesMockup" alt="Caja de patatas Cascroty">
+      <img class="menu-feature__menu-card menu-feature__menu-card--one" :src="menuCard" alt="Carta de Cascroty">
+      <img class="menu-feature__menu-card menu-feature__menu-card--two" :src="menuCard" alt="" aria-hidden="true">
       <img class="menu-feature__burger" :src="burger" alt="Burger de Cascroty">
     </section>
 
@@ -141,14 +130,14 @@
 import { onBeforeUnmount, onMounted, ref } from 'vue'
 import { gsap } from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import logo from '../assets/cascroty/Logo.png'
 import homeLogo from '../assets/mascot/logo.png'
-import teapotHero from '../assets/cascroty/cascroty-teapot-hero.png'
+import teapotHero from '../assets/cascroty/hero.png'
 import teapotMenu from '../assets/cascroty/tetera-y-te-menta.png'
 import bocadillo from '../assets/cascroty/bocadillo-individual-transparent.png'
 import bocadilloTernera from '../assets/cascroty/bocadillo-ternera-feature.png'
 import bocadilloTerneraCutout from '../assets/cascroty/bocadillo-ternera.png'
-import menu from '../assets/cascroty/menu-cascroty.png'
+import menu from '../assets/cascroty/flyer.png'
+import menuCard from '../assets/cascroty/menu-cascroty.png'
 import darija from '../assets/cascroty/Darijha-transparent.png'
 import cup from '../assets/cascroty/cup.png'
 import burger from '../assets/cascroty/burger.png'
@@ -156,7 +145,6 @@ import burgerChees from '../assets/cascroty/burger-chees.png'
 import salsaAndalus from '../assets/cascroty/salsa-al-andalus.png'
 import salsaAlgerienne from '../assets/cascroty/salsa-algerienne.png'
 import delivery from '../assets/cascroty/Delivery.png'
-import paper from '../assets/cascroty/Papel-cropped.png'
 import friesMockup from '../assets/cascroty/cascroty-fries-mockup-transparent.png'
 import presentacion from '../assets/cascroty/presentacion.png'
 
@@ -168,8 +156,7 @@ onMounted(() => {
   if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
   context = gsap.context(() => {
     gsap.timeline({ defaults: { ease: 'power3.out' } })
-      .from('.hero__logo', { opacity: 0, scale: .92, duration: 1.3 })
-      .from('.hero__scroll', { opacity: 0, y: 12, duration: .45 }, .7)
+      .from('.hero__scroll', { opacity: 0, y: 12, duration: .45 }, .2)
     gsap.utils.toArray('.reveal').forEach((element) => {
       gsap.from(element, { opacity: 0, y: 54, rotate: -2, duration: .85, ease: 'power3.out', scrollTrigger: { trigger: element, start: 'top 84%', once: true } })
     })
@@ -188,7 +175,7 @@ onBeforeUnmount(() => context?.revert())
 .cascroty-page *, .cascroty-page *::before, .cascroty-page *::after { box-sizing: border-box; }
 .portfolio-back-link { display: inline-flex; align-items: center; border: 1px solid rgba(255, 255, 255, .62); border-radius: 999px; padding: .85rem 1.35rem; background: linear-gradient(105deg, rgba(217, 74, 18, .88), rgba(194, 11, 90, .84), rgba(237, 22, 114, .8)); color: #fff; font-size: .9rem; font-weight: 800; text-decoration: none; box-shadow: inset 0 1px 0 rgba(255, 255, 255, .58), 0 .6rem 1.3rem rgba(122, 11, 60, .2); transition: transform .25s ease, box-shadow .25s ease, filter .25s ease; }.portfolio-back-link:hover { box-shadow: inset 0 1px 0 rgba(255, 255, 255, .78), 0 .8rem 1.5rem rgba(122, 11, 60, .26); color: #fff; filter: saturate(1.12) brightness(1.06); transform: translateY(-.2rem); }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; }
-.hero { position: relative; height: min(100svh, 60vw); min-height: 37rem; overflow: hidden; background: var(--yellow); isolation: isolate; }
+.hero { position: relative; height: min(100vw, 80rem); min-height: 45rem; overflow: hidden; background: var(--yellow); isolation: isolate; }
 .hero__photo { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
 .hero__logo { position: absolute; z-index: 2; top: 60%; left: 50%; width: min(58vw, 58rem); filter: drop-shadow(.35rem .48rem 0 rgba(112, 36, 0, .14)); transform: translate(-50%, -50%); }
 .hero__pattern { position: absolute; z-index: 1; bottom: -18%; width: 30rem; opacity: .34; mix-blend-mode: soft-light; animation: pattern-drift 10s ease-in-out infinite alternate; }.hero__pattern--left { left: -11%; }.hero__pattern--right { right: -11%; transform: rotate(180deg); animation-delay: -4s; }
@@ -237,12 +224,16 @@ onBeforeUnmount(() => context?.revert())
 @media (max-width: 700px) { .cup-scene__burger { top: 47%; left: 1.4rem; width: 75vw; }.cup-scene__text { max-width: 20rem; font-size: .72rem !important; } }
 .menu-feature { position: relative; min-height: min(58vw, 52rem); overflow: hidden; padding: 0; background: var(--bright-yellow); }.menu-feature img { position: absolute; display: block; max-height: none; object-fit: contain; filter: drop-shadow(.6rem .8rem .55rem rgba(61, 37, 0, .3)); }.menu-feature__bag { z-index: 2; bottom: 5%; left: 7%; width: min(28vw, 25rem) !important; }.menu-feature__menu { z-index: 3; top: 16%; left: 39%; width: min(31vw, 29rem) !important; transform: rotate(-7deg); }.menu-feature__box { z-index: 4; right: 7%; bottom: 6%; width: min(23vw, 21rem) !important; }.menu-feature__burger { z-index: 5; top: 7%; left: 42%; width: min(19vw, 17rem) !important; animation: burger-spin 14s linear infinite; }
 @media (max-width: 700px) { .menu-feature { min-height: 42rem; }.menu-feature__bag { bottom: 7%; left: -3%; width: 66vw !important; transform: none; }.menu-feature__menu { display: block; width: 19vw !important; }.menu-feature__menu--one { top: 18%; left: 30%; transform: rotate(-13deg); }.menu-feature__menu--two { top: 14%; left: 40%; transform: rotate(0); }.menu-feature__menu--three { top: 18%; left: 50%; transform: rotate(13deg); }.menu-feature__box { display: block; right: 4%; bottom: 9%; width: 28vw !important; }.menu-feature__burger { display: block; top: auto; bottom: -2%; left: 34%; width: 35vw !important; } }
-.menu-feature__bag { width: min(40vw, 35rem) !important; }.menu-feature__menu { width: min(20vw, 18rem) !important; transform-origin: 16% 92%; }.menu-feature__menu--one { z-index: 3; top: 27%; left: 48%; transform: rotate(-13deg); }.menu-feature__menu--two { z-index: 4; top: 24%; left: 53%; transform: rotate(0deg); }.menu-feature__menu--three { z-index: 5; top: 27%; left: 58%; transform: rotate(13deg); }
+.menu-feature__bag { width: min(40vw, 35rem) !important; }.menu-feature__menu { width: min(12vw, 15rem) !important; transform-origin: 16% 92%; }.menu-feature__menu--one { z-index: 3; top: 24%; left: 50%; transform: none; }.menu-feature__menu--two { z-index: 4; top: 24%; left: 53%; transform: rotate(0deg); }.menu-feature__menu--three { z-index: 5; top: 27%; left: 58%; transform: rotate(13deg); }
 @media (max-width: 700px) { .menu-feature__bag { width: 76vw !important; }.menu-feature__menu { width: 43vw !important; }.menu-feature__menu--one { top: 29%; left: 36%; }.menu-feature__menu--two { top: 26%; left: 42%; }.menu-feature__menu--three { top: 29%; left: 48%; } }
 .cup-scene__copy { z-index: 10; }
 @media (hover: hover) and (pointer: fine) { .real-food__wraps, .real-food__beef, .real-food__cheeseburger { transition: transform .48s cubic-bezier(.2,.7,.2,1), filter .48s ease; }.real-food:hover .real-food__wraps { transform: translate(-1rem, -1.2rem) rotate(-4deg) scale(1.05); }.real-food:hover .real-food__beef { transform: translate(.8rem, -1.6rem) rotate(4deg) scale(1.06); }.real-food:hover .real-food__cheeseburger { transform: translate(0, -.8rem) rotate(13deg) scale(1.1); } }
 .menu-feature img { filter: none; }
-.menu-feature__bag { width: min(46vw, 40rem) !important; }.menu-feature__burger { top: auto; bottom: -3%; left: 37%; width: min(35vw, 31rem) !important; }.menu-feature__box { right: 11%; }
+.menu-feature__bag { width: min(48vw, 40rem) !important; }.menu-feature__burger { top: auto; bottom: -3%; left: 37%; width: min(35vw, 31rem) !important; }.menu-feature__box { right: 11%; }
+@media (min-width: 701px) { .menu-feature__burger { top: 50%; right: auto; bottom: auto; left: 39%; } }
+.menu-feature__menu-card { top: 27%; bottom: auto; width: min(14vw, 14rem) !important; transform-origin: 50% 100%; }
+.menu-feature__menu-card--one { z-index: 7; right: 20%; transform: rotate(-12deg); }
+.menu-feature__menu-card--two { z-index: 8; top: 24%; right: 16%; transform: rotate(0deg); }
 @media (max-width: 700px) { .menu-feature__bag { width: 85vw !important; }.menu-feature__burger { top: auto; bottom: -4%; left: 28%; width: 76vw !important; }.menu-feature__box { right: 6%; } }
 .menu-feature__bag, .menu-feature__menu, .menu-feature__box { filter: drop-shadow(0 .5rem .24rem rgba(0, 48, 21, .5)) !important; }
 .paper-feature { display: grid; grid-template-columns: minmax(0, 1fr); place-items: center; padding: clamp(.7rem, 1.8vw, 1.5rem); }.paper-feature__carousel { width: 100%; min-width: 0; height: 100%; min-height: 0; }
@@ -257,6 +248,11 @@ onBeforeUnmount(() => context?.revert())
   .menu-feature__menu--three { top: 20%; left: 52%; transform: rotate(13deg); }
   .menu-feature__box { display: block; right: 11%; bottom: 10%; width: 36vw !important; }
   .menu-feature__burger { display: block; top: auto; bottom: 33%; left: 49%; width: 45vw !important; }
+}
+@media (max-width: 700px) {
+  .menu-feature__menu-card { top: 12%; bottom: auto; width: 32vw !important; }
+  .menu-feature__menu-card--one { right: 44%; }
+  .menu-feature__menu-card--two { top: 9%; right: 23%; }
 }
 
 /* Composición restaurada con los mockups actuales. */
@@ -275,9 +271,9 @@ onBeforeUnmount(() => context?.revert())
 .counter-menu__board > .menu-card:nth-child(n + 3) { min-height: clamp(17rem, 27vw, 25rem); }
 .menu-price { background: var(--bright-yellow); }
 .menu-card h3, .menu-card p { color: var(--bright-yellow); }
-.menu-card--drink > img:not(.menu-card__burger) { position: absolute; z-index: 2; top: -8%; left: 10%; width: 105%; height: 115%; object-fit: contain; filter: drop-shadow(.28rem .38rem .28rem rgba(0, 48, 21, .46)); transform: none; transition: none; }
+.menu-card--drink > img:not(.menu-card__burger) { position: absolute; z-index: 2; top: -8%; left: 19%; width: 105%; height: 115%; object-fit: contain; filter: drop-shadow(.28rem .38rem .28rem rgba(0, 48, 21, .46)); transform: none; transition: none; }
 .menu-card--drink .menu-card__burger { width: 54%; height: 54%; bottom: 2%; left: 8%; }
-.menu-card__combo-product .menu-card__combo-cup { z-index: 4; top: 4%; right: auto; bottom: auto; left: 30%; width: 70% !important; height: 88% !important; filter: drop-shadow(.3rem .42rem .3rem rgba(0, 48, 21, .46)) !important; }
+.menu-card__combo-product .menu-card__combo-cup { z-index: 4; top: 7%; right: auto; bottom: auto; left: 27%; width: 75% !important; height: 90% !important; filter: drop-shadow(.3rem .42rem .3rem rgba(0, 48, 21, .46)) !important; }
 .menu-card__combo-product .menu-card__combo-fries { z-index: 5; right: 3%; bottom: -3%; left: auto; width: 32% !important; height: 68% !important; filter: drop-shadow(.28rem .4rem .3rem rgba(0, 48, 21, .48)) !important; }
 .paper-feature__image--carton { object-fit: contain; }
 .menu-feature__box { object-fit: contain; }
@@ -309,7 +305,7 @@ onBeforeUnmount(() => context?.revert())
 .real-food__wraps { left: 22%; }
 .real-food__beef { left: 50%; }
 .real-food__cheeseburger { left: 40%; }
-.hero__photo { z-index: 1; object-position: center; }
+.hero__photo { z-index: 1; object-position: center 12%; }
 .hero__logo { top: 20%; width: min(74vw, 70rem); }
 @media (max-width: 700px) {
   .case-home { top: 1rem; left: 1rem; }
@@ -317,15 +313,71 @@ onBeforeUnmount(() => context?.revert())
   .real-food__wraps { left: 1%; }
   .real-food__beef { left: 42%; }
   .real-food__cheeseburger { left: 30%; }
+  .hero__photo { object-position: center 8%; }
   .hero__logo { top: 22%; width: 100vw; }
   .counter-menu__board > .menu-card--wide { height: 15rem !important; min-height: 15rem !important; }
-  .menu-card__combo-product .menu-card__combo-chicken { bottom: 8%; left: 2%; width: 32% !important; height: 52% !important; }
-  .menu-card__combo-product .menu-card__combo-beef { bottom: 29%; left: 26%; width: 24% !important; height: 39% !important; }
-  .menu-card__combo-product .menu-card__combo-chees { bottom: 5%; left: 20%; width: 26% !important; height: 43% !important; }
-  .menu-card__combo-product .menu-card__combo-cup { top: auto; bottom: 3%; left: 37%; width: 50% !important; height: 68% !important; }
-  .menu-card__combo-product .menu-card__combo-fries { right: 5%; bottom: 4%; width: 21% !important; height: 43% !important; }
-  .menu-card__combo-product .menu-card__sauce { width: 11% !important; height: 15% !important; }
-  .menu-card__combo-product .menu-card__sauce--andalus { bottom: 5%; left: 48%; }
-  .menu-card__combo-product .menu-card__sauce--algerienne { bottom: 5%; left: 59%; }
+  .menu-card__combo-product .menu-card__combo-chicken { bottom: 5%; left: 0; width: 40% !important; height: 65% !important; }
+  .menu-card__combo-product .menu-card__combo-beef { bottom: 29%; left: 25%; width: 29% !important; height: 47% !important; }
+  .menu-card__combo-product .menu-card__combo-chees { bottom: 3%; left: 17%; width: 33% !important; height: 54% !important; }
+  .menu-card__combo-product .menu-card__combo-cup { top: auto; bottom: 1%; left: 33%; width: 66% !important; height: 88% !important; }
+  .menu-card__combo-product .menu-card__combo-fries { right: 3%; bottom: 3%; width: 26% !important; height: 54% !important; }
+  .menu-card__combo-product .menu-card__sauce { width: 13% !important; height: 18% !important; }
+  .menu-card__combo-product .menu-card__sauce--andalus { bottom: 4%; left: 49%; }
+  .menu-card__combo-product .menu-card__sauce--algerienne { bottom: 4%; left: 62%; }
+  .menu-card--drink > img:not(.menu-card__burger) { top: -12%; left: 14%; width: 115%; height: 125%; }
+}
+
+/* Versión móvil unificada: conserva la dirección de arte sin desbordes. */
+@media (max-width: 700px) {
+  .cascroty-page { overflow-x: clip; }
+
+  .hero { height: 100vw; min-height: 0; }
+  .hero__photo { object-fit: contain; object-position: center; }
+  .hero__scroll { right: 1rem; bottom: 1.15rem; font-size: .58rem; }
+
+  .real-food { height: 30rem; min-height: 0; }
+  .real-food__arabic-track { gap: 2rem; }
+  .real-food__wraps { bottom: 17%; left: 4%; width: 68vw; }
+  .real-food__beef { bottom: 34%; left: 42%; width: 47vw; }
+  .real-food__cheeseburger { bottom: 17%; left: 32%; width: 40vw; }
+
+  .concept-copy > img { min-height: 0; object-fit: cover; }
+
+  .counter-menu { padding: .85rem .55rem 1.25rem; }
+  .counter-menu__topline { display: block; padding: 0 0 .7rem; font-size: .48rem; text-align: center; }
+  .counter-menu__topline span:not(:first-child) { display: none; }
+  .counter-menu__heading { grid-template-columns: minmax(0, 1fr) auto; gap: .45rem; margin-bottom: .75rem; }
+  .counter-menu__heading p { grid-column: 1 / -1; display: block; margin-bottom: 0; font-size: .52rem; text-align: center; }
+  .counter-menu__heading h2 { font-size: clamp(2rem, 10vw, 3rem); }
+  .counter-menu__tag { padding: .28rem .42rem; font-size: .45rem; }
+  .counter-menu__board { gap: .45rem; padding: .45rem; border-width: .35rem; border-radius: .85rem; }
+  .counter-menu__board > .menu-card:nth-child(n + 3) { min-height: 12.5rem; }
+  .menu-card { min-height: 12.5rem; border-width: .18rem; border-radius: .8rem; padding: 2.2rem .45rem .6rem; }
+  .menu-card--wide, .counter-menu__board > .menu-card--wide { height: 15rem !important; min-height: 15rem !important; }
+  .menu-card h3 { top: .48rem; font-size: .78rem; }
+  .menu-card p { bottom: .35rem; left: .38rem; font-size: .4rem; }
+  .menu-price { width: 3.35rem; right: -.25rem; bottom: .1rem; font-size: .55rem; }
+  .menu-card--drink > img:not(.menu-card__burger) { top: -5%; left: 13%; width: 96%; height: 105%; }
+  .menu-card--drink .menu-card__burger { width: 51%; height: 51%; left: 7%; }
+
+  .menu-feature { min-height: 28rem; }
+  .menu-feature img { translate: 0 -2.5rem; }
+  .menu-feature__bag { bottom: 5%; left: -4%; width: 64vw !important; }
+  .menu-feature__menu { width: 18vw !important; }
+  .menu-feature__menu--one { top: 44%; left: 49%; transform: none; }
+  .menu-feature__box { right: 5%; bottom: 7%; width: 28vw !important; }
+  .menu-feature__burger { z-index: 7; top: 69%; right: auto; bottom: auto; left: 36%; width: 42vw !important; }
+  .menu-feature__menu-card { top: 50%; width: 21vw !important; }
+  .menu-feature__menu-card--one { right: 14%; }
+  .menu-feature__menu-card--two { top: 47%; right: 11%; }
+
+  .cup-scene { min-height: 47rem; padding: 0; }
+  .cup-scene__copy { top: 9%; left: 1.25rem; width: calc(100% - 2.5rem); }
+  .cup-scene h2 { font-size: clamp(3rem, 13vw, 4.7rem); }
+  .cup-scene__text { max-width: 19rem; }
+  .cup-scene__cup { bottom: -1%; left: -7%; width: 114vw; }
+
+  .case-footer { min-height: 6.5rem; padding: 1.25rem; }
+  .case-footer .case-footer__behance { font-size: .7rem; }
 }
 </style>
