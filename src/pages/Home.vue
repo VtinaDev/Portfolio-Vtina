@@ -666,15 +666,15 @@ export default {
 
 @media (max-width: 800px) {
   .hero-intro-card__content { grid-column: 1; }
-  .home-hero__portrait-stage { width: min(104%, 30rem); min-height: 18rem; grid-column: 1; grid-row: 2; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem; }
-  .hero-home-copy { align-items: center; }
-  .hero-home-intro { max-width: 10ch; font-size: clamp(2.7rem, 11vw, 4.4rem); text-align: center; }
+  .home-hero__portrait-stage { width: min(104%, 30rem); min-height: 18rem; grid-column: 1; grid-row: 2; flex-direction: column; align-items: flex-start; justify-content: flex-start; gap: 2.5rem; padding-top: 1.5rem; }
+  .hero-home-copy { width: 100%; align-items: flex-start; }
+  .hero-home-intro { max-width: 10ch; font-size: clamp(2.7rem, 11vw, 4.4rem); text-align: left; }
   .hero-home-summary { text-align: left; }
   .hero-home-socials { justify-content: center; }
-  .hero-profile-card { width: min(100%, 21rem); margin-right: 0; }
+  .hero-profile-card { align-self: center; width: min(100%, 21rem); margin-right: 0; }
 }
 @media (max-width: 560px) {
-  .home-hero--immersive { min-height: 48rem; }
+  .home-hero--immersive { min-height: 51rem; }
   .hero-intro-card__eyebrow { font-size: clamp(.92rem, 4vw, 1.1rem); }
   .home-hero__portrait-stage { width: min(106%, 23rem); min-height: 16rem; }
   .hero-profile-card { width: min(100%, 18rem); border-radius: 1.45rem; padding: 1.25rem; }

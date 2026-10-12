@@ -61,19 +61,23 @@ const route = useRoute()
 .nav-links {
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex: 1 1 auto;
+  flex-wrap: nowrap;
+  min-width: 0;
   justify-content: flex-end;
   gap: .35rem;
 }
 
 .nav-links a {
   border-radius: 999px;
+  margin-left: 0;
   padding: .5rem .72rem;
   text-decoration: none;
   font-size: .96rem;
   font-weight: 700;
   color: var(--menu-ink);
   background: none;
+  white-space: nowrap;
   -webkit-text-fill-color: currentColor;
   transition: background .2s ease, color .2s ease;
 }
@@ -91,7 +95,7 @@ const route = useRoute()
 .nav-links a:focus-visible { outline: 3px solid var(--brand-magenta); outline-offset: 3px; }
 
 @media (max-width: 680px) {
-  .navbar { position: relative; align-items: flex-start; gap: .75rem; padding: .9rem 1.25rem; }
+  .navbar { position: relative; align-items: center; gap: .75rem; padding: .9rem 1.25rem; }
   .nav-links { justify-content: flex-end; gap: .15rem; }
   .nav-links a { padding: .4rem .52rem; font-size: .84rem; }
 }
@@ -99,7 +103,7 @@ const route = useRoute()
 @media (max-width: 420px) {
   .navbar { padding: .8rem 1rem; }
   .logo { width: 2.4rem; }
-  .nav-links { max-width: 15rem; }
+  .nav-links { gap: .08rem; }
   .nav-links a { padding: .35rem .42rem; font-size: .78rem; }
 }
 
