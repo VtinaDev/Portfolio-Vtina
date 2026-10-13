@@ -30,10 +30,10 @@
 <script>
 import LayoutBase from '../components/LayoutBase.vue'
 import HeroMascot from '../components/HeroMascot.vue'
-import mascotBody from '../assets/mascot/Cuerpo.png'
-import mascotHead from '../assets/mascot/Cabeza.png'
-import mascotLeftArm from '../assets/mascot/Izquierdo.png'
-import mascotRightArm from '../assets/mascot/Derecho.png'
+import mascotBody from '../assets/mascot/Cuerpo.webp'
+import mascotHead from '../assets/mascot/Cabeza.webp'
+import mascotLeftArm from '../assets/mascot/Izquierdo.webp'
+import mascotRightArm from '../assets/mascot/Derecho.webp'
 
 export default {
   name: 'VTina',

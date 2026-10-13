@@ -1,35 +1,37 @@
 :root {
-  --brand-ink: #28000f;
-  --brand-wine: #b90038;
-  --brand-magenta: #ed008c;
-  --brand-pink: #f837aa;
-  --brand-orange: #ff6b00;
-  --brand-red: #d92a08;
-  --brand-amber: #ffb15c;
-  --brand-cream: #fff6f1;
-  --brand-muted: #855264;
-  --brand-line: rgba(237, 0, 140, .22);
-  --brand-gradient: linear-gradient(105deg, var(--brand-orange) 0%, var(--brand-red) 31%, var(--brand-wine) 58%, var(--brand-magenta) 100%);
-  --glass-greige: #d9d0c9;
-  --glass-greige-deep: #84746e;
-  --glass-dark-orange: #9d3e16;
-  --glass-orange: #ef6a1f;
-  --glass-fuchsia: #df1879;
+  --brand-ink: #5a1521; /* Marron Guerrier */
+  --brand-wine: #5a1521; /* Marron Guerrier oscuro */
+  --brand-muted: #5a1521; /* Marron Guerrier */
+  --brand-magenta: #9a004b; /* Rouge Açaï */
+  --brand-pink: #d52f25; /* Rouge Sang */
+  --brand-red: #b3061e; /* Rouge Vif */
+  --brand-amber: #dc534d; /* Rouge Fièvre */
+  --brand-orange: #e64715; /* Orange Mars */
+  --brand-cream: #fff8f6;
+  --brand-line: rgba(154, 0, 75, .38);
+  --brand-gradient: linear-gradient(118deg, var(--brand-orange) 0%, var(--brand-red) 38%, var(--brand-magenta) 68%, var(--brand-wine) 100%);
+  --brand-gradient-radial: radial-gradient(circle at 18% 12%, var(--brand-amber) 0%, var(--brand-red) 27%, var(--brand-magenta) 56%, var(--brand-ink) 100%);
+  --brand-gradient-conic: conic-gradient(from 215deg at 72% 38%, var(--brand-ink), var(--brand-muted), var(--brand-magenta), var(--brand-orange), var(--brand-ink));
+  --glass-greige: #fff8f6;
+  --glass-greige-deep: #5a1521;
+  --glass-dark-orange: #5a1521;
+  --glass-orange: #e64715;
+  --glass-fuchsia: #9a004b;
   --glass-blur: 20px;
   --glass-saturation: 125%;
-  --glass-surface: rgba(222, 213, 207, .48);
-  --glass-surface-strong: rgba(241, 236, 232, .74);
+  --glass-surface: rgba(245, 247, 255, .48);
+  --glass-surface-strong: rgba(245, 247, 255, .74);
   --glass-border: rgba(255, 255, 255, .78);
   --glass-inner-highlight: rgba(255, 255, 255, .88);
-  --glass-inner-shadow: rgba(102, 65, 51, .17);
-  --glass-shadow: rgba(91, 56, 51, .2);
+  --glass-inner-shadow: rgba(6, 7, 10, .17);
+  --glass-shadow: rgba(6, 7, 10, .2);
   --glass-transition: 240ms cubic-bezier(.2, .75, .3, 1);
   --ui-depth-transition: 360ms cubic-bezier(.22, .8, .28, 1);
-  --liquid-glass-surface: rgba(255, 246, 241, .32);
-  --liquid-glass-surface-strong: rgba(255, 246, 241, .48);
+  --liquid-glass-surface: rgba(245, 247, 255, .32);
+  --liquid-glass-surface-strong: rgba(245, 247, 255, .48);
   --liquid-glass-border: rgba(255, 255, 255, .72);
   --liquid-glass-highlight: rgba(255, 255, 255, .8);
-  --liquid-glass-shadow: rgba(108, 13, 51, .23);
+  --liquid-glass-shadow: rgba(154, 0, 75, .28);
   --liquid-glass-blur: 18px;
   --liquid-glass-ease: 320ms cubic-bezier(.22, .8, .28, 1);
   --liquid-card-radius: 25px;
@@ -75,7 +77,7 @@ body, html, #app {
 
 .section-background {
   width: 100%;
-  background-color: #f0f0f0; /* ejemplo */
+  background-color: var(--brand-cream);
 }
 
 .section-content {
@@ -88,7 +90,7 @@ nav {
   width: 100%;
   max-width: 100%;
   background-color: transparent;
-  color: #1d1d1f;
+  color: var(--brand-ink);
   display: flex;
   justify-content: space-between;
   padding: 1rem 2rem;
@@ -98,13 +100,13 @@ nav {
 }
 
 nav a {
-  color: #1d1d1f;
+  color: var(--brand-ink);
   text-decoration: none;
   margin-left: 1rem;
 }
 
 nav a:hover {
-  color: #f39c12;
+  color: var(--brand-orange);
 }
 
 .navbar {
@@ -123,11 +125,11 @@ nav a:hover {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--brand-magenta);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--brand-orange);
 }
 
 body {
@@ -157,7 +159,7 @@ button {
   transition: border-color 0.25s;
 }
 button:hover {
-  border-color: #646cff;
+  border-color: var(--brand-magenta);
 }
 button:focus,
 button:focus-visible {
@@ -178,14 +180,14 @@ button:focus-visible {
 
 @media (prefers-color-scheme: light) {
   :root {
-    color: #213547;
-    background-color: #ffffff;
+    color: var(--brand-ink);
+    background-color: var(--brand-cream);
   }
   a:hover {
-    color: #747bff;
+    color: var(--brand-magenta);
   }
   button {
-    background-color: #f9f9f9;
+    background-color: var(--brand-cream);
   }
 }
 
@@ -332,12 +334,14 @@ footer a:hover {
 #app .glass-button::after { position: absolute; z-index: -1; border-radius: inherit; content: ''; pointer-events: none; }
 #app .glass-button::before { top: 1px; right: 12%; left: 12%; height: 34%; background: linear-gradient(180deg, rgba(255, 255, 255, .52), rgba(255, 255, 255, .02)); filter: blur(3px); transition: transform var(--liquid-glass-ease); }
 #app .glass-button::after { right: 15%; bottom: -38%; left: 15%; height: 62%; background: radial-gradient(ellipse, color-mix(in srgb, var(--brand-orange) 30%, transparent), transparent 70%); filter: blur(.75rem); opacity: .34; }
-#app .glass-button--primary { --glass-button-fill: linear-gradient(110deg, rgba(255, 107, 0, .58), rgba(185, 0, 56, .55) 56%, rgba(237, 0, 140, .5)); --glass-button-ink: var(--brand-cream); --glass-button-glow: rgba(185, 0, 56, .24); text-shadow: 0 1px rgba(40, 0, 15, .2); }
-#app .glass-button--secondary { --glass-button-fill: linear-gradient(145deg, rgba(255, 255, 255, .32), rgba(255, 246, 241, .1)); --glass-button-ink: var(--brand-wine); --glass-button-glow: rgba(255, 107, 0, .1); }
+#app .glass-button--primary { --glass-button-fill: linear-gradient(110deg, rgba(230,71,21,.78), rgba(179,6,30,.72) 56%, rgba(213,47,37,.68)); --glass-button-ink: var(--brand-cream); --glass-button-glow: rgba(230,71,21,.3); text-shadow: 0 1px rgba(90,21,33,.35); }
+#app .glass-button--secondary { --glass-button-fill: linear-gradient(145deg, rgba(255,255,255,.32), rgba(255,248,246,.1)); --glass-button-ink: var(--brand-wine); --glass-button-glow: rgba(154,0,75,.18); }
 #app .glass-button:focus-visible { outline: 3px solid var(--brand-magenta); outline-offset: 3px; }
 
 @media (hover: hover) and (pointer: fine) {
   #app .glass-button:hover { border-color: rgba(255, 255, 255, .76); box-shadow: inset 0 1px 1px rgba(255, 255, 255, .68), inset 0 -4px 10px rgba(40, 0, 15, .08), 0 .9rem 1.65rem var(--glass-button-glow); filter: brightness(1.035); transform: translateY(-2px); }
+  #app .glass-button--primary:hover { border-color: var(--brand-orange); background: linear-gradient(110deg, rgba(230,71,21,.94), rgba(179,6,30,.88) 56%, rgba(213,47,37,.84)); box-shadow: inset 0 1px 0 rgba(255,232,213,.82), 0 0 .9rem rgba(230,71,21,.78), 0 .9rem 1.65rem rgba(230,71,21,.36); }
+  #app .glass-button--secondary:hover { border-color: var(--brand-magenta); background: linear-gradient(145deg, rgba(154,0,75,.66), rgba(154,0,75,.22)); box-shadow: inset 0 1px 0 rgba(255,220,241,.74), 0 0 .9rem rgba(154,0,75,.72), 0 .9rem 1.65rem rgba(154,0,75,.32); color: var(--brand-cream); text-shadow: 0 1px rgba(90,21,33,.35); }
   #app .glass-button:hover::before { transform: translate3d(8%, -6%, 0); }
   #app .glass-button:active { box-shadow: inset 0 3px 9px rgba(40, 0, 15, .22), inset 0 -1px 1px rgba(255, 255, 255, .5), 0 .3rem .7rem var(--glass-button-glow); filter: brightness(.97); transform: translateY(1px) scale(.985); }
 }
