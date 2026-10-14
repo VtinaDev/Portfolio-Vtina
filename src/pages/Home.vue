@@ -3,7 +3,7 @@
     <section ref="homeHero" class="home-hero home-hero--immersive" aria-labelledby="home-title">
       <div class="hero-stage">
         <section class="hero-intro-card">
-          <div class="home-hero__portrait-stage" aria-label="Retrato de Valentina Angulo">
+          <div class="home-hero__portrait-stage">
             <div ref="heroCard" class="hero-home-copy" @pointermove="tiltHeroCard" @pointerleave="resetHeroCard">
               <p class="hero-home__eyebrow">Creative Frontend Developer</p>
               <h1 id="home-title" class="hero-home-intro"><span class="hero-home-greeting">Hola, soy</span><strong>Vtina Dev</strong></h1>
@@ -25,7 +25,7 @@
           <p class="home-about__lead">Uno comunicación visual, UX/UI y desarrollo frontend para transformar ideas en experiencias claras, útiles y memorables.</p>
         </div>
       </div>
-      <div ref="coverflow" class="project-coverflow" role="region" aria-roledescription="carrusel" aria-label="Proyectos seleccionados" tabindex="0" @keydown="handleCoverflowKeydown">
+      <div ref="coverflow" class="project-coverflow" role="region" aria-roledescription="carrusel" aria-label="Proyectos seleccionados" tabindex="0" @keydown="handleCoverflowKeydown" @mouseenter="pauseCoverflowAutoplay" @mouseleave="resumeCoverflowAutoplay" @focusin="pauseCoverflowAutoplay" @focusout="resumeCoverflowAutoplay" @pointerdown="pauseCoverflowAutoplay" @pointerup="resumeCoverflowAutoplay" @pointercancel="resumeCoverflowAutoplay">
         <div ref="projectsTrack" class="project-coverflow__stage">
           <div class="project-slider">
             <a
@@ -128,6 +128,7 @@ export default {
       coverflowDrag: null,
       coverflowDidDrag: false,
       coverflowReduced: false,
+      coverflowAutoTimer: null,
       behanceCascroty,
       projectSlides: [
         { title: 'Juego & Leo', description: 'Una app educativa que convierte la lectura y el juego en una experiencia digital cercana.', image: juegoLeoCover, logo: juegoLeoLogo, alt: 'Portada del proyecto Juego y Leo', href: '/portfolio#project-details', external: false },
@@ -149,6 +150,7 @@ export default {
     })
     this.setupCoverflow()
     window.addEventListener('resize', this.handleCoverflowResize, { passive: true })
+    document.addEventListener('visibilitychange', this.handleCoverflowVisibility)
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return
     this.heroAnimation = gsap.context(() => {
       const heroItems = [
@@ -178,7 +180,9 @@ export default {
     this.heroAnimation?.revert()
     this.coverflowDraggable?.kill()
     this.coverflowProxy?.remove()
+    this.pauseCoverflowAutoplay()
     window.removeEventListener('resize', this.handleCoverflowResize)
+    document.removeEventListener('visibilitychange', this.handleCoverflowVisibility)
   },
   methods: {
     scrollTools(direction) {
@@ -259,6 +263,7 @@ export default {
         }
       })
       this.coverflowDraggable = draggable
+      this.resumeCoverflowAutoplay()
     },
     coverflowStep() {
       return Math.max(190, Math.min(this.$refs.projectsTrack?.clientWidth * .42 || 300, 360))
@@ -327,6 +332,23 @@ export default {
     },
     nextProject() { this.goToProject(this.activeProject + 1) },
     previousProject() { this.goToProject(this.activeProject - 1) },
+    pauseCoverflowAutoplay() {
+      if (this.coverflowAutoTimer) window.clearTimeout(this.coverflowAutoTimer)
+      this.coverflowAutoTimer = null
+    },
+    resumeCoverflowAutoplay(event) {
+      if (event?.relatedTarget && event.currentTarget?.contains(event.relatedTarget)) return
+      this.pauseCoverflowAutoplay()
+      if (this.coverflowReduced || document.hidden || !this.$refs.projectsTrack) return
+      this.coverflowAutoTimer = window.setTimeout(() => {
+        this.nextProject()
+        this.resumeCoverflowAutoplay()
+      }, 4600)
+    },
+    handleCoverflowVisibility() {
+      if (document.hidden) this.pauseCoverflowAutoplay()
+      else this.resumeCoverflowAutoplay()
+    },
     activateProject(event, index) {
       if (this.coverflowDidDrag) {
         event.preventDefault()
@@ -929,15 +951,19 @@ export default {
 @keyframes ui-window-float { to { transform: translateY(-52%) perspective(1000px) rotateY(-5deg) rotateX(-2deg); } } @keyframes ui-card-float { to { transform: translateY(-1rem) rotate(3deg); } } @keyframes ui-bars { to { transform: scaleY(.54); transform-origin: bottom; } } @keyframes ui-orbit { to { transform: rotate(360deg) translateX(1rem) rotate(-360deg); } }
 .hero-home-copy { position: relative; z-index: 1; border: 1px solid rgba(245,247,255,.34); border-radius: 2rem; padding: clamp(1.5rem, 3vw, 2.5rem); background: linear-gradient(145deg, rgba(245,247,255,.18), rgba(245,247,255,.05)); box-shadow: inset 0 1px 0 rgba(245,247,255,.48), inset 0 -1px 0 rgba(245,247,255,.08), 0 1.4rem 3.6rem rgba(6,7,10,.22); backdrop-filter: blur(18px) saturate(115%); -webkit-backdrop-filter: blur(18px) saturate(115%); }
 @media (max-width: 800px) { .hero-ui-motion { opacity: .6; }.hero-ui-motion__window { top: auto; right: -6rem; bottom: -2rem; width: 28rem; transform: perspective(1000px) rotateY(-9deg) rotateX(3deg); }.hero-ui-motion__card--code { right: .5rem; width: 11rem; }.hero-ui-motion__card--metric { right: 12rem; bottom: 11%; } }
-@media (max-width: 560px) { .hero-home-copy { border-radius: 1.45rem; padding: 1.35rem; } .hero-ui-motion { opacity: .38; }.hero-ui-motion__window { right: -11rem; bottom: -4rem; }.hero-ui-motion__card--code, .hero-ui-motion__card--metric { display: none; } }
+@media (max-width: 560px) { .hero-home-copy { border-radius: 1.45rem; padding: 1.25rem 1.35rem .82rem; } .hero-ui-motion { opacity: .38; }.hero-ui-motion__window { right: -11rem; bottom: -4rem; }.hero-ui-motion__card--code, .hero-ui-motion__card--metric { display: none; } }
 @media (prefers-reduced-motion: reduce) { .hero-ui-motion *, .hero-ui-motion { animation: none !important; } }
 
 /* Hero minimal: una única tarjeta de presentación. */
 .home-hero__portrait-stage { justify-content: center; }
 .hero-home-copy { width: min(calc(100% - 2rem), 38rem); flex: 0 1 38rem; isolation: isolate; transform-style: preserve-3d; will-change: transform, opacity; transition: box-shadow .35s ease, border-color .35s ease; }
 .hero-home-copy::after { position: absolute; z-index: 0; inset: 0; border-radius: inherit; background: radial-gradient(circle at var(--glass-x, 50%) var(--glass-y, 40%), rgba(245,247,255,.45), transparent 29%); content: ''; opacity: .7; pointer-events: none; transition: opacity .3s ease; }
+.hero-home-copy::before { position: absolute; z-index: 2; inset: -2px; border-radius: inherit; padding: 2px; background: linear-gradient(105deg, rgba(255,255,255,.18), #ff9acd 24%, #ff8d52 46%, #7cfff0 67%, #8cb8ff 82%, rgba(255,255,255,.22)); background-size: 260% 100%; content: ''; opacity: 0; pointer-events: none; transition: opacity .25s ease; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; }
 .hero-home-copy > * { position: relative; z-index: 1; }
-@media (hover: hover) and (pointer: fine) { .hero-home-copy:hover { border-color: rgba(245,247,255,.74); box-shadow: inset 0 1px 0 rgba(245,247,255,.7), inset 0 -1px 0 rgba(245,247,255,.14), 0 2rem 4.5rem rgba(6,7,10,.34), 0 0 2rem rgba(255,47,163,.24); }.hero-home-copy:hover::after { opacity: 1; } }
+@keyframes hero-card-border-shimmer { to { background-position: 260% 0; } }
+@media (hover: hover) and (pointer: fine) { .hero-home-copy:hover { border-color: rgba(245,247,255,.74); box-shadow: inset 0 1px 0 rgba(245,247,255,.7), inset 0 -1px 0 rgba(245,247,255,.14), 0 2rem 4.5rem rgba(6,7,10,.34), 0 0 2rem rgba(255,47,163,.24), 0 0 2.8rem rgba(73,255,231,.18); }.hero-home-copy:hover::after { opacity: 1; }.hero-home-copy:hover::before { opacity: 1; animation: hero-card-border-shimmer 2.1s linear infinite; } }
+.hero-home-copy:focus-within::before, .hero-home-copy:active::before { opacity: 1; animation: hero-card-border-shimmer 2.1s linear infinite; }
+.hero-home-copy:active { border-color: rgba(190,255,247,.92); box-shadow: inset 0 1px 0 rgba(245,247,255,.74), inset 0 -1px 0 rgba(245,247,255,.16), 0 1rem 2.6rem rgba(6,7,10,.32), 0 0 2rem rgba(73,255,231,.3); }
 @media (max-width: 560px) { .hero-home-copy { width: calc(100% - 1.5rem); } }
 
 /* Carrusel de proyectos: tarjetas uniformes, arrastre y desplazamiento táctil. */
@@ -961,7 +987,36 @@ export default {
 .project-coverflow .project-slider__slide:hover { box-shadow: 0 1.5rem 3.2rem rgba(90,21,33,.34); transform: none; }
 .project-coverflow .project-slider__slide:hover img { transform: scale(1.04); }
 .project-coverflow .project-slider__overlay { min-height: 52%; }
+
+/* Marco glass liquid: borde iridiscente y reflejo de cristal sobre las portadas. */
+.project-coverflow .project-slider__slide { isolation: isolate; border: 2px solid rgba(222,255,252,.62); box-shadow: inset 0 0 0 1px rgba(255,168,220,.4), inset 0 1px 0 rgba(255,255,255,.78), inset 0 -1px 0 rgba(104,255,239,.36), 0 0 1.2rem rgba(111,255,239,.18), 0 1.25rem 3.2rem rgba(67,18,43,.26); }
+.project-coverflow .project-slider__slide::before { position: absolute; z-index: 5; inset: -1px; border-radius: inherit; padding: 2px; background: linear-gradient(125deg, rgba(255,255,255,.9), rgba(255,174,221,.92) 20%, rgba(120,255,241,.85) 48%, rgba(151,183,255,.9) 70%, rgba(255,255,255,.8)); background-size: 220% 100%; content: ''; opacity: .78; pointer-events: none; -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0); -webkit-mask-composite: xor; mask-composite: exclude; transition: opacity .35s ease, background-position 1.4s ease; }
+.project-coverflow .project-slider__slide::after { position: absolute; z-index: 2; top: 1px; right: 1px; left: 1px; height: 43%; border-radius: calc(var(--liquid-card-radius) - 2px) calc(var(--liquid-card-radius) - 2px) 48% 48%; background: linear-gradient(115deg, rgba(255,255,255,.36), transparent 26% 66%, rgba(167,255,247,.18)); content: ''; mix-blend-mode: screen; opacity: .72; pointer-events: none; }
+.project-coverflow .project-slider__overlay { z-index: 3; }
+.project-coverflow .project-slider__slide:hover::before { background-position: 100% 0; opacity: 1; }
+.project-coverflow .project-slider__slide--active { border-color: rgba(225,255,253,.96); box-shadow: inset 0 0 0 2px rgba(130,255,242,.72), inset 0 1px 0 rgba(255,255,255,.92), inset 0 -1px 0 rgba(255,148,211,.58), 0 0 1.7rem rgba(104,255,239,.48), 0 1.5rem 3.6rem rgba(67,18,43,.32); }
+.project-coverflow .project-slider__slide--active::before { opacity: 1; animation: liquid-card-border 3.6s linear infinite; }
+@keyframes liquid-card-border { to { background-position: 220% 0; } }
+@media (prefers-reduced-motion: reduce) { .project-coverflow .project-slider__slide--active::before { animation: none; } }
+
 @media (max-width: 720px) { .project-coverflow__stage { height: min(132vw, 34rem); }.project-coverflow .project-slider__slide { width: min(78vw, 25rem); max-width: 86%; } }
+
+/* Sección de proyectos: lectura amplia arriba y carrusel centrado debajo. */
+.home-about-story { display: block; }
+.home-about-story__intro { width: min(100%, 47rem); margin: 0 auto clamp(2rem, 4vw, 3.6rem) 0; }
+.home-about-story__intro > div { max-width: none; }
+.home-about-story__intro h2 { max-width: 16ch; font-size: clamp(2.45rem, 4.6vw, 4.65rem); line-height: .96; }
+.home-about-story__intro .home-about__lead { max-width: 44rem; font-size: clamp(1.22rem, 1.75vw, 1.52rem); line-height: 1.55; }
+.project-coverflow { width: min(100%, 78rem); padding: 1rem clamp(1.25rem, 3vw, 2.75rem) 1.85rem; box-sizing: border-box; }
+.project-coverflow__stage { height: clamp(33rem, 50vw, 43rem); overflow: visible; }
+
+@media (max-width: 720px) {
+  .home-about-story__intro { width: 100%; margin-bottom: 1.75rem; }
+  .home-about-story__intro h2 { max-width: 14ch; font-size: clamp(2.2rem, 10vw, 3.15rem); }
+  .project-coverflow { padding: .7rem .5rem 1.35rem; }
+  .project-coverflow__stage { height: min(140vw, 36rem); }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .project-coverflow { perspective: none; }
   .project-coverflow__stage { height: auto; overflow-x: auto; overscroll-behavior-inline: contain; scroll-snap-type: inline mandatory; scrollbar-width: none; cursor: auto; }
